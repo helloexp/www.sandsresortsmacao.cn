@@ -1,0 +1,534 @@
+/* inherit from static/common/new-ui.css */
+
+@media only screen and (min-width:1024px) {
+    .main-nav li.m-parent-nav {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    #dp_accordion {
+        display: block;
+    }
+    .dp-tabs-header,
+    .dp-tabs-body {
+        display: none;
+    }
+    .vcenter {
+        display: inherit;
+    }
+    .seo-block {
+        padding-left: 15px;
+    }
+    .m-header-block {
+        display: inline;
+    }
+    /* nav with more */
+    .main-nav {
+        text-align: left;
+        margin-top: 10px;
+    }
+    .main-nav>li {
+        display: inherit;
+    }
+    .main-nav>li>a {
+        padding: 5px 0px;
+    }
+    .main-nav li.m-parent-nav {
+        display: inherit;
+    }
+    li.menucollapse-more {
+        display: none;
+    }
+    /* end */
+    .footer-misc {
+        text-align: left;
+    }
+    .listpage-highlight-block {
+        float: left !important;
+    }
+    .listpage-title {
+        padding: 10px 0px 0px 0px !important;
+        margin: 0 !important;
+    }
+    .m-nav {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    .navbar-collapse {
+        border-top: none;
+    }
+    .m-top-bar {
+        display: none;
+    }
+    .m-inline {
+        padding-left: 5px;
+        padding-right: 5px;
+        /*height:112px;*/
+    }
+    .m-navbar-header {
+        padding-top: 15px;
+        margin-left: 5px;
+    }
+    .m-icon-block {
+        width: 48px;
+    }
+    .m-mysands-block {
+        width: 50px;
+    }
+    .m-icon-block .m-call-icon {
+        height: 32px;
+        background-image: url(https://www.sandsresortsmacao.cn/venetianmacao/images/mob_icon/call_icon.png);
+        background-size: 32px auto;
+        background-repeat: no-repeat;
+        margin-left: 8px;
+    }
+    .m-icon-block .m-call-dark-icon {
+        height: 32px;
+        background-image: url(https://www.sandsresortsmacao.cn/venetianmacao/images/mob_icon/call_icon_black.png);
+        background-size: 32px auto;
+        background-repeat: no-repeat;
+        margin-left: 8px;
+    }
+    .m-tip-text {
+        color: #fff;
+    }
+    .m-tip-dark-text {
+        color: #000;
+    }
+    .m-mysands-block .m-mysands-icon {
+        height: 32px;
+        background-image: url(https://www.sandsresortsmacao.cn/venetianmacao/images/mob_icon/card.png);
+        background-size: 32px auto;
+        background-repeat: no-repeat;
+        margin-left: 9px;
+    }
+    .m-icon-block .m-book-icon {
+        height: 32px;
+        background-image: url(https://www.sandsresortsmacao.cn/venetianmacao/images/mob_icon/calendar_icon.png);
+        background-size: 32px auto;
+        background-repeat: no-repeat;
+        margin-left: 8px;
+    }
+    .m-icon-block .m-book-dark-icon {
+        height: 32px;
+        background-image: url(https://www.sandsresortsmacao.cn/venetianmacao/images/mob_icon/calendar_icon_black.png);
+        background-size: 32px auto;
+        background-repeat: no-repeat;
+        margin-left: 8px;
+    }
+    .m-icon-block .m-menu-icon {
+        height: 32px;
+        background-image: url(https://www.sandsresortsmacao.cn/venetianmacao/images/mob_icon/menu_icon.png);
+        background-size: 32px auto;
+        background-repeat: no-repeat;
+        margin-left: 8px;
+    }
+    .m-icon-block .m-menu-dark-icon {
+        height: 32px;
+        background-image: url(https://www.sandsresortsmacao.cn/venetianmacao/images/mob_icon/menu_icon_black.png);
+        background-size: 32px auto;
+        background-repeat: no-repeat;
+        margin-left: 8px;
+    }
+    .m-lang {
+        display: inline;
+        padding-right: 18px;
+    }
+    .lp-m-item-desc {
+        float: left !important;
+        padding-left: 0px;
+    }
+    .m-right-content-noimage {
+        padding-left: 15px !important;
+    }
+    .m-navs {
+        margin-top: 20px;
+    }
+    /* for offerpage */
+    .offerpage-highlight-block {
+        float: left !important;
+        margin-left: -18px;
+    }
+    .m-offerpage-content {
+        padding-left: 15px;
+    }
+    .m-op-img {
+        padding-right: 15px;
+    }
+    .m-op-desc {
+        padding-left: 0px;
+        padding-top: 10px;
+    }
+    .gi_box_body {
+        margin-left: 0px;
+    }
+    .offerpage-title-v1-p-m {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    #fixed-header {
+        min-height: 85px;
+    }
+    main.full {
+        margin-top: 85px;
+    }
+    .top-nav {
+        display: none;
+    }
+    .navbar {
+        margin: 0;
+        position: fixed;
+    }
+    .tiles-divider .text {
+        font-size: 14px;
+    }
+    #fixed-footer {
+        display: none;
+        position: fixed;
+        bottom: 0px;
+        z-index: 2;
+        left: 0;
+        width: 100%;
+        padding: 15px 2%;
+        background: #0C0C13;
+    }
+    #fixed-footer a.btn-ft-black {
+        padding: 6px 15px 5px 15px;
+        color: #fff;
+        font-size: 12px;
+        border: 1px solid #93773a;
+        display: inline-block;
+    }
+    #fixed-footer a.btn-ft-black:hover {
+        text-decoration: none;
+    }
+    #fixed-footer a.btn-ft-black.left {
+        float: left;
+        margin: 0 0 0 10px;
+    }
+    #fixed-footer a.btn-ft-black.right {
+        float: right;
+        margin: 0 10px 0 0;
+    }
+    #fixed-footer a.btn-ft-black i {
+        color: #93773a;
+    }
+    #fixed-footer a.btn-ft-black i.fa-phone {
+        margin: 0 10px 0 0;
+    }
+    #fixed-footer a.btn-ft-black i.fa-chevron-right {
+        margin: 0 0 0 10px;
+    }
+    #fixed-footer a.btn-ft-black em {
+        font-style: normal;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .txt-block,
+    .media-block {
+        width: 100%;
+    }
+    .navbar-collapse.m-nav.collapsing {
+        display: none;
+        /*height: 0px!important;*/
+    }
+    .m-lang {
+        margin: 22px 0 0 0;
+    }
+}
+
+/* unique for venetianmacao mobile css */
+
+.nav-mobile {
+    display: none;
+}
+
+.add-info {
+    display: none;
+}
+
+.main-nav>li:nth-child(n + 4) .sn {
+    right: 0;
+}
+
+.menucollapse-more .sn {
+    min-height: 0;
+}
+
+@media only screen and (max-width: 1024px) {
+    .add-info {
+        display: none;
+        /*position: absolute;*/
+        top: calc(100vh - 180px);
+        color: #959595;
+        font-size: 14px;
+        margin-left: 1em;
+    }
+    .navbar-collapse.m-nav.collapse.in {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        width: 70%;
+        left: 30%;
+        padding-left: 0;
+        padding-right: 0;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        border-bottom: 0px;
+        background: rgb(251, 251, 251);
+        max-height: 100vh;
+        z-index: 2;
+        font-family: 'OpenSans-Regular';
+    }
+    .dl-menu-mobile {
+        background: rgb(251, 251, 251);
+        color: #555;
+        padding-left: 0px;
+        list-style: none;
+        min-height: 80vh;
+    }
+    .dl-menu-mobile>li {
+        list-style: none;
+        /*border-top: 1px solid rgba(0, 0, 0, 0.1);*/
+        /*height: 4em;*/
+        height: auto;
+        line-height: 4em;
+    }
+    .dl-menu-mobile>li a:hover {
+        color: black;
+        text-decoration: none;
+    }
+    .nav-1st-title {
+        text-align: center;
+        height: 8.8em !important;
+        line-height: 8.8em !important;
+    }
+    .nav-1st-title>div {
+        background: url("https://www.sandsresortsmacao.cn/venetianmacao/css/images/x_close.svg") no-repeat;
+        background-position: right 8% bottom 50%;
+        background-size: 1.2em 1.2em;
+        display: inline-block;
+        width: 100%;
+        font-size: 1.6em;
+        font-weight: bold;
+        /*text-transform: uppercase;*/
+        text-align: left;
+    }
+    .nav-1st-title>div>span {
+        font-size: 14px;
+        color: #b49589;
+        border: 1px solid #b49587;
+        margin-left: 1.5em;
+        padding: 0.5em 1.5em;
+        height: 60%;
+    }
+    .nav-1st-label {
+        /* padding: 1em 3em 1em 1.5em; */
+        display: inline-block;
+        margin-left: 1.5em;
+        width: 70%;
+        font-size: 14px;
+        color: #555;
+        line-height: 4em;
+        height: 4em;
+    }
+    .more-right {
+        position: absolute;
+        display: inline-block;
+        line-height: 4em;
+        /* top: 0px; */
+        /* text-align: center; */
+        /* vertical-align: middle; */
+        /*border-left: 1px solid rgba(0, 0, 0, 0.1);*/
+        font-size: 14px;
+        width: 25%;
+        text-align: center;
+        padding: 0;
+        height: 4em;
+    }
+    .nav-1-open {
+        background: url("https://www.sandsresortsmacao.cn/venetianmacao/css/images/down_arrow_new.svg") no-repeat;
+        background-size: 48% 48%;
+        background-position: right 50% bottom 50%;
+    }
+    .nav-1-close {
+        background: url("https://www.sandsresortsmacao.cn/venetianmacao/css/images/up_arrow.svg") no-repeat;
+        background-size: 30% 30%;
+        background-position: right 50% bottom 50%;
+        /*-moz-transform:rotate(180deg);*/
+        /*-webkit-transform:rotate(180deg);*/
+        /*transform:rotate(180deg);*/
+        /*filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);*/
+    }
+    .more-right>a {
+        display: block;
+    }
+    .no-subnav {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .sn-mobile {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        overflow-x: hidden;
+        visibility: hidden;
+    }
+    .COL-mobile {
+        display: block;
+        width: 100%;
+        /* left: 0px; */
+        background-color: rgb(251, 251, 251)
+    }
+    .COL-mobile .last-menu {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .COL-mobile>ul {
+        padding: 0px;
+    }
+    .nav-2st-title {
+        text-align: center;
+        height: 8.8em !important;
+        line-height: 8.8em !important;
+    }
+    .nav-2st-label {
+        display: inline-block;
+        width: 66%;
+        font-size: 1.6em;
+        font-weight: bold;
+        text-transform: uppercase;
+        height: 100%;
+        vertical-align: top;
+    }
+    .back-to-nav1 {
+        background: url("https://www.sandsresortsmacao.cn/venetianmacao/css/images/back_leftarrow.svg") no-repeat;
+        background-position: 10% 50%;
+        background-size: 1.2em 1.2em;
+        display: inline-block;
+        width: 15%;
+        height: 100%;
+    }
+    .close-nav2 {
+        background: url("https://www.sandsresortsmacao.cn/venetianmacao/css/images/x_close.svg") no-repeat;
+        background-position: right 50% bottom 50%;
+        background-size: 1.2em 1.2em;
+        display: inline-block;
+        width: 15%;
+        height: 100%;
+    }
+    .COL-mobile>ul {
+        height: 0px;
+    }
+    .COL-mobile>ul>li {
+        visibility: hidden;
+        height: auto;
+        padding: 0.8em 0em 0.8em 3em;
+        font-size: 1.2em;
+        line-height: 1.5;
+    }
+    .COL-mobile>ul>li a:hover {
+        color: black;
+        text-decoration: none;
+    }
+    .nav1-hide {
+        display: none !important;
+        /* border: 0px !important; */
+    }
+    .nav1-hide2 {
+        border: 0px !important;
+    }
+    .nav-2st-topName,
+    .nav-2st-leftName,
+    .nav-2st-rightName {
+        height: 3em;
+        line-height: 3em;
+        padding-left: 1.5em;
+        display: block;
+        background: url("https://www.sandsresortsmacao.cn/venetianmacao/css/images/down_arrow_new.svg") no-repeat;
+        background-size: 64% 64%;
+        background-position: 160% 50%;
+        /*border-top: 1px solid rgba(0, 0, 0, 0.1);*/
+        font-size: 1.4em;
+        background-color: #f7f2e8;
+    }
+    /*.nav-2st-showSubM {*/
+    /*height: 3em;*/
+    /*width: 15%;*/
+    /*display: inline-block;*/
+    /*background: url("down_arrow.svg") no-repeat;*/
+    /*background-size: 50% 50%;*/
+    /*background-position: 130% 50%;*/
+    /*}*/
+    .nav-2st-topName-click,
+    .nav-2st-leftName-click,
+    .nav-2st-rightName-click {
+        background: url("https://www.sandsresortsmacao.cn/venetianmacao/css/images/up_arrow.svg") no-repeat;
+        background-size: 40% 40%;
+        background-position: 116% 50%;
+        color: #B49589;
+        /*border-bottom: 1px solid rgba(0, 0, 0, 0.1);*/
+        background-color: #f7f2e8;
+    }
+    .COL-carousel-mobile {
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 10%;
+    }
+    .main-nav .slick-slide {
+        display: inline-flex !important;
+    }
+    .main-nav .slick-slide>div {
+        display: inline-flex;
+    }
+    .iC-mobile {
+        height: auto;
+    }
+    .iC-mobile img {
+        width: 100%;
+        height: auto;
+    }
+    .ovl-mobile {
+        /*width: 30%!important;*/
+        /*left: 20%!important;*/
+        /*bottom: 3%!important;*/
+        right: 0;
+    }
+    .add-info li {
+        list-style: none;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .subscribe_icon {
+        background: url("https://www.sandsresortsmacao.cn/venetianmacao/css/images/email.svg") no-repeat;
+        background-size: 50% 50%;
+        background-position: 50% 50%;
+        width: 32px;
+        height: 32px;
+        display: inline-block;
+    }
+    .get_here_icon {
+        background: url("https://www.sandsresortsmacao.cn/venetianmacao/css/images/location-o.svg") no-repeat;
+        background-size: 50% 50%;
+        background-position: 50% 50%;
+        width: 32px;
+        height: 32px;
+        display: inline-block;
+    }
+    .guide_icon {
+        background: url("https://www.sandsresortsmacao.cn/venetianmacao/css/images/guide.svg") no-repeat;
+        background-size: 50% 50%;
+        background-position: 50% 50%;
+        width: 32px;
+        height: 32px;
+        display: inline-block;
+    }
+}
+
+@media screen and (max-height:530px) {
+    .add-info {
+        top: calc(100vh - 110px);
+    }
+}

@@ -1,0 +1,316 @@
+var ALL = {};
+var static_root = _static;
+var indicator_elem = null;
+var test_offset = null;
+var using_init = false;
+
+function rm_gallery(gallery_id) {
+    var gallery_item = ALL[gallery_id];
+    //console.log("rm_gallery:"+gallery_id);
+    if (gallery_item) {
+        //console.log("rm_gallery will be closed");
+        gallery_item.close();
+    }
+}
+
+function init_gallery_data() {
+
+    // custom text/html process
+    blueimp.Gallery.prototype.textFactory = function (obj, callback) {
+        var $element = $('<div>').attr("title", obj.title);
+        var iframe_el = $("<iframe allowfullscreen='true' mozallowfullscreen='true' webkitallowfullscreen='true' frameBorder='0' style='width:100%;height:100%;'>");
+        iframe_el.attr("src", obj.href);
+        $element.append(iframe_el);
+        this.setTimeout(callback, [{type:'load', target:$element[0]}]);
+        return $element[0];
+    };
+
+    $(".js_custom_gallery").each(function(){
+        var is_active = $(this).parent().hasClass("active");
+        var is_active2 = $(this).parent().parent().hasClass("in");
+        var is_act = is_active || is_active2;
+        if (!is_act) {
+            return;
+        }
+
+        var all_data = [];
+        var item_gallery_id = $(this).attr("id");
+        $(this).next().children().each(function(){
+            
+            var gallery_item = {};
+            var target = $(this);
+            var source = target.attr("data-source");
+            var thumbnail = target.attr("data-thumbnail");
+            if (source == "image") {
+                gallery_item['type'] = 'image/jpeg';     
+                gallery_item['href'] = thumbnail;
+            } else {
+                gallery_item['type'] = 'text/html';
+                gallery_item['poster'] = thumbnail; 
+                gallery_item['href'] = target.attr("data-embed_link");
+            }
+            gallery_item['description'] = target.attr("data-desc");
+            gallery_item['thumbnail'] = thumbnail;
+            gallery_item['source'] = source;
+            gallery_item['image_alt'] = target.attr("data-image_alt");
+            //console.log(gallery_item);
+            all_data.push(gallery_item);
+        });
+
+        var g = blueimp.Gallery(
+        all_data, 
+        {
+            //displayTransition: false,
+            container: "#"+item_gallery_id,
+            carousel: true,
+            //startSlideshow:true,
+            slideshowInterval:1000000,
+            //indicatorContainer: "ol",
+            onslide:function(index, slide) {
+                var type = this.list[index].type;
+                if (type === 'text/html') {
+                    calc_text_html_slide_layout(slide);
+                } else if(type === 'image/jpeg') {
+                    var image_alt = this.list[index].image_alt; 
+                    if(image_alt) {
+                        var img_elem = $(slide).children("img");
+                        img_elem.attr("alt", image_alt);
+                        img_elem.attr("title", image_alt);
+                    }
+                }
+                var text = this.list[index].description,
+                    node = this.container.find('.description');
+                node.empty();
+                if (text) {
+                    node[0].appendChild(document.createTextNode(text));
+                }
+                calc_thumbnail_layout(index, slide, this.container);
+            },
+            onopen:function() {
+                //console.log("---->>onopen");
+                this.toggleControls = function() {
+                    // overwrite, keep the controls displaying;
+                };
+                // display controlsClass;
+                var controlsClass = this.options.controlsClass;
+                if (!this.container.hasClass(controlsClass)) {
+                    this.container.addClass(controlsClass);
+                }
+                this.container.find(".indicator").hide();
+            },
+            onopened:function() {
+                this.container.find(".indicator").show();
+                _adapt_indicator(this.container, all_data);
+                calc_desc_layout(this.container);
+            }
+        });
+        ALL[item_gallery_id] = g;
+    });
+}
+
+function calc_desc_layout(container) {
+    var desc_bottom = container.width() * 0.115;
+    var desc_elem = container.find(".description");
+    if (desc_elem.length > 0) {
+        var desc_elem = $(desc_elem[0]);
+        desc_elem.removeAttr("style");
+        desc_elem.attr("style", "bottom:"+desc_bottom+"px;");
+    }
+}
+
+function calc_thumbnail_layout(index, slide, container) {
+    var is_active = $(container).is(":hidden") == false;
+    if (is_active) {
+        index += 1
+        var displaying_info = _get_displaying_info(index, container);
+        var displaying_tn_num = displaying_info.displaying_tn_num;
+        var tn_width = displaying_info.tn_width;
+
+
+        var cur_page = Math.floor(index / displaying_tn_num);
+        if (index % displaying_tn_num == 0) {
+            cur_page = index / displaying_tn_num;
+        } else {
+            cur_page = Math.floor(index / displaying_tn_num) + 1;
+        }
+        //console.log(cur_page);
+        var min_display_index = (cur_page - 1) * displaying_tn_num
+        var max_display_index = min_display_index + displaying_tn_num;
+        //console.log("max_display_index:"+max_display_index);
+        //console.log("min_display_index:"+min_display_index);
+        var is_last_item = max_display_index / index == cur_page;
+        //console.log("is_last_item:"+is_last_item);
+        container.find("ol.indicator").children().each(function(filtering_index, elem){
+            if (filtering_index >= min_display_index && filtering_index < max_display_index) {
+                $(this).show();
+            } else {
+                $(this).hide(); 
+            }
+        });
+
+    }
+
+}
+
+function _get_displaying_info(index, container) {
+    var gallery_width = container.width(); 
+    var tn_prev_width = container.find(".thumbnail-prev").width(); 
+    var thumbnail_displaying_width = gallery_width - tn_prev_width*2;
+    var tn_width = Math.floor(gallery_width * 0.16);
+    var displaying_tn_num = Math.floor(thumbnail_displaying_width / tn_width);
+    return {"displaying_tn_num":displaying_tn_num, "tn_width":tn_width, "thumbnail_displaying_width":thumbnail_displaying_width};
+}
+
+
+function reinit_gallery(gallery_id) {
+    var target_gallery_selector = "#"+gallery_id;
+    if ($(target_gallery_selector).length) {
+        
+        var is_active = $(target_gallery_selector).parent().hasClass("active");
+        var is_active2 = $(target_gallery_selector).parent().parent().hasClass("in");
+        var is_act = is_active || is_active2;
+        if (!is_act) {
+            return; 
+        }
+        
+        var all_data = []; 
+
+        $("#"+gallery_id).next().children().each(function(){
+            var gallery_item = {};
+            var target = $(this);
+            var source = target.attr("data-source");
+            var thumbnail = target.attr("data-thumbnail");
+            if (source == "image") {
+                gallery_item['type'] = 'image/jpeg';
+                gallery_item['href'] = thumbnail;
+            } else {
+                gallery_item['type'] = 'text/html';
+                gallery_item['poster'] = thumbnail; 
+                gallery_item['href'] = target.attr("data-embed_link");
+            }
+            gallery_item['description'] = target.attr("data-desc");
+            gallery_item['thumbnail'] = thumbnail;
+            gallery_item['source'] = source;
+            gallery_item['image_alt'] = target.attr("data-image_alt");
+
+            all_data.push(gallery_item);
+        }); 
+
+        var g = blueimp.Gallery(
+            all_data,
+            {
+                //displayTransition: false,
+                container: "#"+gallery_id,
+                carousel: true,
+                startSlideshow:true,
+                slideshowInterval:1000000,
+                indicatorContainer: "ol",
+                onslide:function(index, slide) {
+                    var type = this.list[index].type;
+                    //console.log("type:"+type);
+                    if (type === 'text/html') {
+                        calc_text_html_slide_layout(slide);
+                    } else if (type === 'image/jpeg') {
+                        var image_alt = this.list[index].image_alt;
+                        if (image_alt) {
+                            var img_elem = $(slide).children("img");
+                            img_elem.attr("alt", image_alt);
+                            img_elem.attr("title", image_alt);
+                        }
+                    }
+
+                    //var text = this.list[index].getAttribute('data-description'),
+                    var text = this.list[index].description,
+                        node = this.container.find('.description');
+                    node.empty();
+                    //console.log(text);
+                    if (text) {
+                        node[0].appendChild(document.createTextNode(text));
+                    }
+                    calc_thumbnail_layout(index, slide, this.container);
+
+                },
+                onopen:function() {
+                    this.toggleControls = function() {
+                        // overwrite, keep the controls displaying;
+                    };
+                    // display controlsClass;
+                    var controlsClass = this.options.controlsClass;
+                    if (!this.container.hasClass(controlsClass)) {
+                        this.container.addClass(controlsClass);
+                    }
+                    this.container.find(".indicator").hide();
+                },
+                onopened:function() {
+                    this.container.find(".indicator").show();
+                    _adapt_indicator(this.container, all_data);
+                    calc_desc_layout(this.container);
+                }
+            }
+        ); 
+        ALL[gallery_id] = g;
+    }
+}
+
+function calc_text_html_slide_layout(slide) {
+    var slide_content = $(slide).find('.slide-content');
+    slide_content.removeAttr("style");
+    slide_content.attr("style", "height:78%;max-height:899px;");
+}
+
+function _adapt_indicator(container, all_data) {
+    /*
+    adapt the indicator to fully render the matched thumbnails
+    */
+    var indicator_elem = container.find(".indicator");
+    // always calculate the offset in the initialized status  
+    indicator_elem.removeAttr("style");
+
+    var gallery_width = container.width();
+    var gallery_height = gallery_width/1.24;
+
+    var tn_width = Math.floor(gallery_width * 0.16);
+    var tn_height = Math.floor(gallery_height * 0.125);
+
+    var li_elems = indicator_elem.find("li");
+    var data_type;
+    for (var i=0; i<li_elems.length; i++) {
+        var li = $(li_elems[i]);
+        data_type = all_data[i].source || "image";
+
+        var img = $("<img />");
+        img.addClass("gallery-icon");
+        if (data_type === "wistia" || data_type === "youtube") {
+            img.attr("src", static_root + "/images/g-video.png");
+        }else if (data_type === "sphere") {
+            img.attr("src", static_root + "/images/g-tour.png");
+        }else {
+            img.attr("src", static_root + "/images/g-tour.png");
+            img.attr("style", "visibility:hidden;");
+        }
+        li.width(tn_width);
+        li.height(tn_height-7);
+        var s = li.attr("style");
+        s = s + ";background-size:135% auto;";
+        li.attr("style", s);
+        li.empty();
+        li.append(img);
+    }
+
+    var displaying_info = _get_displaying_info(1, container);
+    var thumbnail_displaying_width = displaying_info.thumbnail_displaying_width;
+    var displaying_tn_num = displaying_info.displaying_tn_num;
+    var tn_width = displaying_info.tn_width;
+
+    var dist = thumbnail_displaying_width - displaying_tn_num*tn_width;
+
+    var indicator_offset = indicator_elem.offset();
+    var x = parseInt(indicator_offset.left);
+    var y = parseInt(indicator_offset.top);
+    indicator_elem.offset({"left":parseInt(x+dist/2), "top":parseInt(y)});
+}
+
+
+$(document).ready(function() {
+    init_gallery_data();
+});

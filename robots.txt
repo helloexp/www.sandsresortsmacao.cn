@@ -1,0 +1,9 @@
+User-agent:*
+Disallow:/content/dam/macao/
+Disallow:/Press_Club/
+Disallow:/showmi-testing/
+Disallow:/uploadedFiles/
+Disallow:/assets/
+Disallow:/*CheckinDate*
+
+Sitemap: https://www.sandsresortsmacao.cn/sitemap.xml

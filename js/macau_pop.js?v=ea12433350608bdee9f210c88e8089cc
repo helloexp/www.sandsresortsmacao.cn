@@ -1,0 +1,163 @@
+var dpr = 1;
+if (window.devicePixelRatio) {
+    dpr = Math.floor(window.devicePixelRatio);
+}
+if (dpr > 3) {
+    dpr = 3;
+}
+var htmlElement = document.querySelector('html');
+htmlElement.dataset.dpr = dpr;
+
+var McgdPop = window.McgdPop || {};
+McgdPop = {
+    overlaySelector: '.mcgd-pop-mask',
+    carouselContainerSelector: '.mcgd-pop',
+    carouselItemsSelector: '.mcgd-pop-items',
+    prevArrowSelector: '.mcgd-pop-arrow-prev',
+    nextArrowSelector: '.mcgd-pop-arrow-next',
+    containerSelector: '.js-container-has-pop',
+    itemSelector: '.js-item-has-pop',
+    postsArray: [],
+    init: function () {
+        if ($(McgdPop.containerSelector).length) {
+            McgdPop.getPosts();
+            $(document).on('click', McgdPop.itemSelector + '>a', function (e) {
+                McgdPop.openMcgdPop($(this).closest(McgdPop.itemSelector));
+            });
+            $(document).on('keydown', function (e) {
+                if (27 == e.keyCode) {
+                    McgdPop.closeMcgdPop();
+                }
+            });
+            $(document).on('click', '.mcgd-pop-close', function () {
+                McgdPop.closeMcgdPop();
+            });
+            $(McgdPop.carouselItemsSelector).on('beforeChange', function (event, slick, currentSlide, nextSlide) {
+                McgdPop.changePrevNextHTML(nextSlide);
+            });
+        }
+    },
+    getPosts: function () {
+        McgdPop.parseHTMLData();
+        McgdPop.buildCarousel();
+    },
+    parseHTMLData: function () {
+        $.each($(McgdPop.containerSelector), function (index, value) {
+            // var mcgdItemSelector = '.js-item-has-pop';
+            var mcgdItemNameSelector = '.js-pop-title-1';
+            var mcgdItemImgSelector = '.js-pop-img-wrapper img';
+            var mcgdItemDescriptionSelector = '.js-pop-title-2';
+            var currentPosts = [];
+            $(value).find(McgdPop.itemSelector).each(function () {
+                var name = $(this).find(mcgdItemNameSelector).text();
+                var img = $(this).find(mcgdItemImgSelector).attr('src');
+                var alt = $(this).find(mcgdItemImgSelector).attr('alt');
+                var description = $(this).find(mcgdItemDescriptionSelector).html();
+                currentPosts.push({
+                    name: name,
+                    img: img,
+                    description: description,
+                    alt:alt
+                });
+            });
+            McgdPop.postsArray.push(currentPosts);
+        });
+    },
+    buildCarousel: function () {
+        $.each(McgdPop.postsArray, function (containerIndex, container) {
+            var itemsHTML = '';
+            $.each(container, function (itemIndex, item) {
+                itemsHTML += [
+                    '<div class="mcgd-pop-item">',
+                    '    <div class="mcgd-pop-item-title">' + item.name + '</div>',
+                    '    <div class="mcgd-pop-item-body">',
+                    '        <div class="mpib-inner">',
+                    '            <div class="mpib-inner-left">',
+                    '                <div class="mili-container">',
+                    '                    <div class="mili-container-inner">',
+                    '                        <img src="' + item.img + '" alt="' + item.alt + '">',
+                    '                    </div>',
+                    '                </div>',
+                    '            </div>',
+                    '            <div class="mpib-inner-right">',
+                    '                <div class="mpib-inner-right-inner">',
+                    '                    <div class="miri-content">',
+                    '' + item.description,
+                    '                    </div>',
+                    '                </div>',
+                    '            </div>',
+                    '        </div>',
+                    '    </div>',
+                    '</div>'].join('');
+            });
+
+            var containerHTML = ['<div class="mcgd-pop-mask">',
+                '    <div class="mcgd-pop">',
+                '        <div class="mcgd-pop-inner">',
+                '            <div class="mcgd-pop-items">',
+                '' + itemsHTML,
+                '            </div>',
+                '            <div class="mcgd-pop-arrow">',
+                '                <span class="mcgd-pop-arrow-prev" ontouchstart="">',
+                '                    <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="30" height="30"><defs><style/></defs><path d="M352 512l384-384c12.8-12.8 12.8-32 0-44.8-12.8-12.8-32-12.8-44.8 0L288 486.4c-6.4 6.4-12.8 19.2-12.8 25.6 0 6.4 0 19.2 6.4 25.6l409.6 409.6c12.8 12.8 32 12.8 44.8 0s12.8-32 0-44.8L352 512z"/></svg>',
+                '                    <span>Prev</span>',
+                '                </span>',
+                '                <span class="mcgd-pop-arrow-next" ontouchstart="">',
+                '                    <span>Next</span>',
+                '                    <svg class="icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="30" height="30"><defs><style/></defs><path d="M352 512l384-384c12.8-12.8 12.8-32 0-44.8-12.8-12.8-32-12.8-44.8 0L288 486.4c-6.4 6.4-12.8 19.2-12.8 25.6 0 6.4 0 19.2 6.4 25.6l409.6 409.6c12.8 12.8 32 12.8 44.8 0s12.8-32 0-44.8L352 512z"/></svg>',
+                '                </span>',
+                '            </div>',
+                '        </div>',
+                '        <div class="mcgd-pop-close">×</div>',
+                '    </div>',
+                '</div>'].join('');
+
+            $('body').append(containerHTML);
+        });
+    },
+    openMcgdPop: function ($mcgdItem) {
+        var containerIndex = $mcgdItem.closest(McgdPop.containerSelector).index(McgdPop.containerSelector);
+
+        var mcgdPopItemIndex = parseInt($mcgdItem.data('index'));
+
+        $('body').addClass('no-scroll');
+
+        $(McgdPop.overlaySelector).eq(containerIndex).fadeIn(300);
+        $(McgdPop.carouselContainerSelector).eq(containerIndex).fadeIn(400, function () {
+            $(McgdPop.carouselItemsSelector).eq(containerIndex).find('.slick-active').focus();
+        });
+
+        McgdPop.changePrevNextHTML(mcgdPopItemIndex);
+
+        $(McgdPop.carouselItemsSelector).eq(containerIndex).slick({
+            infinite: true,
+            prevArrow: $(McgdPop.carouselContainerSelector).eq(containerIndex).find(McgdPop.prevArrowSelector),
+            nextArrow: $(McgdPop.carouselContainerSelector).eq(containerIndex).find(McgdPop.nextArrowSelector),
+            adaptiveHeight: true,
+            initialSlide: mcgdPopItemIndex
+        });
+    },
+    closeMcgdPop: function () {
+        var $currentSlick = $(McgdPop.overlaySelector).filter(':visible');
+
+        $(McgdPop.carouselContainerSelector).fadeOut(300);
+        $(McgdPop.overlaySelector).fadeOut(300);
+        $('body').removeClass('no-scroll');
+        window.setTimeout(function () {
+            if ($currentSlick.length) {
+                $currentSlick.find(McgdPop.carouselItemsSelector).slick('unslick');
+            }
+        }, 300);
+    },
+    changePrevNextHTML: function (currentIndex) {
+        var $currentSlick = $(McgdPop.overlaySelector).filter(':visible');
+        var slickIndex = $currentSlick.index(McgdPop.overlaySelector);
+
+        var posts = McgdPop.postsArray[slickIndex];
+        var prevItemName = currentIndex == 0 ? posts[posts.length - 1].name : posts[currentIndex - 1].name;
+        var nextItemName = currentIndex == posts.length - 1 ? posts[0].name : posts[currentIndex + 1].name;
+        $currentSlick.find(McgdPop.prevArrowSelector + ' span').html(prevItemName);
+        $currentSlick.find(McgdPop.nextArrowSelector + ' span').html(nextItemName);
+    }
+};
+McgdPop.init();

@@ -1,0 +1,805 @@
+﻿.bg {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.bg img {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    height: 1235px;
+    margin-top: -617.5px;
+}
+
+.Main {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.MainDiv {
+    position: relative;
+    width: 100%;
+}
+
+.MainDiv>img {
+    width: 100%;
+}
+
+.KV {
+    position: absolute;
+    width: 1160px;
+    left: 50%;
+    top: 185px;
+    margin-left: -580px;
+    cursor: pointer;
+}
+
+.KV>img {
+    width: 100%;
+}
+
+.fc {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    display: block;
+    overflow: hidden;
+    margin: 0px;
+    padding: 0;
+    font-size: 0;
+    z-index: 1;
+}
+
+.KvBg1 {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 80px;
+}
+
+.KvBg1>img {
+    position: relative;
+    max-width: inherit;
+    left: 50%;
+    margin-left: -960px;
+}
+
+.KVTOubu1 {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: -105px;
+}
+
+.Modular {
+    position: relative;
+    width: 1260px;
+    margin: auto;
+}
+
+.ModularTxt p {
+    margin-top: 44px;
+    font-size: 24px;
+    color: #fff;
+    padding: 0px 80px;
+    text-align: left;
+}
+
+.menu {
+    position: relative;
+    margin-top: 80px;
+    border-bottom: solid 1px #fbe7b7;
+}
+
+.menu>span {
+    font-size: 16px;
+    color: #fbe7b7;
+    margin-left: 25px;
+    height: 40px;
+    line-height: 40px;
+    width: 170px;
+    text-align: center;
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu>span:hover {
+    background-color: #fae6b6;
+    color: #000;
+}
+
+.menu>span.select {
+    background-color: #fae6b6;
+    color: #000;
+}
+
+.ModularTxt {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.ModularRen {
+    position: relative;
+    width: 1260px;
+    overflow: hidden;
+    margin: auto;
+    white-space: nowrap;
+    margin-top: 60px;
+}
+
+.ModularRen>span {
+    display: inline-block;
+    position: relative;
+    width: 363px;
+}
+
+.ModularRen>span>img {
+    position: relative;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    max-width: inherit;
+}
+
+.JianTou1 {
+    position: absolute;
+    left: -40px;
+    top: 430px;
+    cursor: pointer;
+}
+
+.JianTou2 {
+    position: absolute;
+    right: -40px;
+    top: 430px;
+    cursor: pointer;
+}
+
+/*.dian {position:relative;width:420px;height:5px;background-color:#fff;overflow:hidden;margin-top: 80px;display: block;border-radius: 20px;left: 50%;margin-left: -210px;}
+.dian>span{display:block;position:relative;width:60px;float:left;height:5px; }
+.dian>span.select{background-color:#b99e62; }*/
+
+.ModularWeibo {
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    width: 1218px;
+    margin-top: 65px;
+    /* height: 680px; */
+    padding-bottom: 50px;
+}
+
+.ModularWeibo>span {
+    position: relative;
+    margin-left: 10px;
+    display: block;
+    float: left;
+    width: 599px;
+}
+
+.ModularWeibo>span>a {
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+}
+
+.CkanGduo {
+    position: relative;
+    width: 64px;
+    margin-left: -32px;
+    left: 50%;
+    margin-top: 80px;
+    cursor: pointer;
+    padding-bottom: 40px;
+}
+
+.XiangGuan {
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 20px;
+}
+
+.XiangGuan>span {
+    display: block;
+    float: left;
+    position: relative;
+    margin-left: 22px;
+    margin-top: 22px;
+    cursor: pointer;
+    width: 397px;
+    height: 250px;
+    overflow: hidden;
+}
+
+.HuaXU {
+    position: relative;
+    overflow: hidden;
+    margin: auto;
+    margin-top: 75px;
+}
+
+.HuaXU>span {
+    display: block;
+    position: relative;
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.HuaXU>span>span {
+    opacity: 0;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background-color: #000;
+}
+
+.HuaXU>span>span>img {
+    position: relative;
+    text-align: center;
+    top: 50%;
+    margin-top: -20px;
+}
+
+.HuaXU>span:hover>span {
+    opacity: .7;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.MobileKV {
+    position: relative;
+    width: 100%;
+}
+
+.MobileKVsp>img {
+    width: 100%;
+}
+
+.MobileKVsp {
+    position: absolute;
+    width: 100%;
+    top: 16%;
+    left: 0%;
+}
+
+.ShoujDaoh1 {
+    position: relative;
+    margin-top: 20px;
+}
+
+.ShoujDaohSpan {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.ShoujDaohSpan>span {
+    display: block;
+    float: left;
+    width: 20%;
+    position: relative;
+    height: 100%;
+}
+
+.ShoujDaohDiv>img {
+    display: none;
+}
+
+.Mobileren {
+    position: relative;
+    width: 100%;
+    white-space: nowrap;
+    margin-top: 40px;
+    overflow: hidden;
+    height: 254px;
+}
+
+.Mobileren>span {
+    display: block;
+    width: 39%;
+    position: absolute;
+}
+
+.MobileWEibotu {
+    position: relative;
+    width: 96%;
+    left: 1.5%;
+    overflow: hidden;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.MobileWEibotu>span {
+    position: relative;
+    display: block;
+    width: 49%;
+    float: left;
+    margin-left: 1%;
+}
+
+.MobileWEibotu>span>img {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.MobileXGsp {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 40px;
+}
+
+.MobileXGsp>img {
+    position: relative;
+    float: left;
+    display: block;
+    width: 45%;
+    margin-left: 3.5%;
+    margin-top: 25px;
+}
+
+.MobileXGsp>div {
+    position: relative;
+    float: left;
+    display: block;
+    width: 45%;
+    margin-left: 3.5%;
+    margin-top: 25px;
+}
+
+.ModileHxu {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.ModileHxu>img {
+    width: 30%;
+    margin-left: 2%;
+    margin-top: 10px;
+}
+
+.FuCheng {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    height: 100%;
+    z-index: 1;
+}
+
+.FuChengDIv {
+    position: relative;
+    width: 46%;
+    left: 28%;
+    top: 25%;
+}
+
+.FuChengDIv>span {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+.FuChengDIv > span >img{width:100%; }
+.FuJiantou1 {
+    position: absolute;
+    left: -175px;
+    top: 50%;
+    cursor: pointer;
+    height: 212px;
+    margin-top: -106px;
+}
+
+.FuJiantou2 {
+    position: absolute;
+    right: -175px;
+    top: 50%;
+    cursor: pointer;
+    height: 212px;
+    margin-top: -106px;
+}
+
+.fcMobileDIv {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+}
+
+.fcMobileDIv1 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+}
+
+.fcMobileDIv1>span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    -webkit-transform: translate(0px, -50%);
+    left: 0px;
+}
+
+.fcMobileDIv1>span>img {
+    width: 100%;
+}
+
+.MainDiv123 {
+    margin-top: 100px;
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+    max-width: 1920px;
+    margin: auto;
+}
+
+.FCJiantou {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0px, -50%);
+}
+
+.FCJiantou>img {
+    width: 100%;
+}
+
+.FCJiantou1 {
+    left: 5%;
+}
+
+.FCJiantou2 {
+    right: 5%;
+}
+
+.MobileXGsp>a {
+    position: relative;
+    float: left;
+    display: block;
+    width: 45%;
+    margin-left: 3.5%;
+    margin-top: 25px;
+    display: block;
+}
+
+.MobileXGsp>a>img {
+    width: 100%;
+}
+
+.dian {
+    position: relative;
+    width: 70%;
+    height: 5px;
+    background-color: #fff;
+    overflow: hidden;
+    margin-top: 80px;
+    display: block;
+    border-radius: 20px;
+    left: 15%;
+}
+
+.dian>span {
+    display: block;
+    position: relative;
+    width: 14.2%;
+    float: left;
+    height: 5px;
+}
+
+.Mobileren>span:nth-child(1) {
+    margin-left: 8%;
+}
+
+.Mobileren>span:nth-child(2) {
+    margin-left: 53%;
+}
+
+.ModularRen>span {
+    display: block;
+    position: absolute;
+    width: 363px;
+    bottom: 0px;
+}
+
+.userInfo {
+    /* height: 581px; */
+}
+
+.ModularRen>span:nth-child(1) {
+    left: 45px;
+}
+
+.ModularRen>span:nth-child(2) {
+    left: 453px;
+}
+
+.ModularRen>span:nth-child(3) {
+    left: 861px;
+}
+
+.ModularRen {
+    height: 580px;
+}
+
+.ModularRen>span>img {
+    width: auto;
+}
+
+/*.Mobileren > span:nth-child(1) {
+    margin-left: -19%;
+}
+
+.Mobileren > span:nth-child(3) {
+   margin-left: 80%;
+}*/
+
+.dian>span.select {
+    background-color: #b99e62;
+}
+
+.KVEmLuolan {
+    width: 48.5%;
+    bottom: 0px;
+}
+
+.KVEmLuolan>img {
+    left: 44%;
+    -webkit-transform: translate(-50%, 0);
+    position: relative;
+}
+
+.KvTxt {
+    position: absolute;
+    width: 1140px;
+    color: #fff;
+    top: 770px;
+    left: 50%;
+    margin-left: -570px;
+    font-size: 14px;
+}
+
+.wistia_popover_overlay {
+    background-color: rgba(0, 0, 0, 0.8) !important;
+}
+
+.XiaoYouxiTu1Button {
+    position: absolute;
+    width: 200px;
+    height: 27px;
+    right: 145px;
+    top: 300px;
+}
+
+.XiaoYouxiTu1 {
+    position: relative;
+    width: 1103px;
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.XiaoYouxiTu2 {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.XiaoYouxiTua {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.XiaoYouxiTua>span {
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.Afcbutton {
+    position: fixed;
+    left: 0px;
+    bottom: 125px;
+}
+
+.FanHouTIng {
+    position: relative;
+    width: 203px;
+    margin: auto;
+    margin-top: 160px;
+}
+
+.Afctu {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    width: 100%;
+    height: 250px;
+    border-top: 1px solid #b79670;
+    bottom: 0;
+    z-index: 9;
+}
+
+.AfctuDiv {
+    position: relative;
+    width: 724px;
+    margin: auto;
+    top: 30px;
+}
+
+.AfctuDiv>img {}
+
+.Afctux {
+    position: absolute;
+    right: -70px;
+    top: 30px;
+    cursor: pointer;
+}
+
+.XYouxiBg {
+    position: relative;
+    width: 90%;
+    left: 5%;
+    margin-top: 35px;
+}
+
+.XYouxiBg>img {}
+
+.XYouxiTU1 {
+    position: relative;
+    overflow: hidden;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.XYouxiTU1>span {
+    float: left;
+    display: block;
+    width: 30%;
+    margin-left: 2.5%;
+    margin-top: 10px;
+}
+
+.XYouxiTU1>span>img {}
+
+.XYxButton1 {
+    position: absolute;
+    width: 22%;
+    height: 14%;
+    top: 46%;
+    right: 12%;
+}
+
+.XYxButton2 {
+    position: absolute;
+    width: 22%;
+    height: 5%;
+    top: 61%;
+    right: 12%;
+}
+
+.XyxFc {
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    z-index: 3;
+}
+
+.XyxFc>img {
+    width: 100%;
+}
+
+.XyxFcButton {
+    position: absolute;
+    width: 25%;
+    height: 32%;
+    right: 14%;
+    top: 54%;
+}
+
+.ApiaoQianTongY {
+    width: 100%;
+    position: relative;
+    height: 100%;
+    display: block;
+    top: 0px;
+    left: 0px;
+    margin-top: 10px;
+}
+
+.MobileXGsp>div>video {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.XiangGuan>span>video {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.MobileKVsp>video {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.KV>video {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.Afctu {
+    height: 0px;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.Afctu.select {
+    height: 250px;
+}
+
+.x {position: absolute;width: 7%;right: 5%;margin-top: 130px;}
+.x>img {width:100%; }
+.erweima {position: relative;width: 30%;margin: auto;margin-top: 310px;}
+.erweima>img {width:100%; }
+
+.erweimaTxt {position: relative;width: 80%;margin: auto;margin-top: 40px;}
+.erweimaTxt>img {width:100%; }

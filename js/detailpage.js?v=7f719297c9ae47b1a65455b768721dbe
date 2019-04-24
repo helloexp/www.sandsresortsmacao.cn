@@ -1,0 +1,128 @@
+function get_width(){
+	var x;
+	if(window.screen!=null){
+		x=window.screen.availWidth;
+	}
+	if(window.innerWidth != null){
+		x=window.innerWidth;
+	}
+	if(window.body != null){
+		x=window.body.clientWidth;
+	}
+	return x;	
+}
+function init_btn(){
+	screen_width=get_width();
+	if(screen_width <= 768){
+		gi_btn_top();
+	}
+	else{
+		gi_btn_right();
+	}
+}
+function gi_btn_top(){
+    var gi_child=$("#dp_gibox_displaying").find("a").each(function(){
+	    var btn_link = $(this).attr("href");
+		if (btn_link && btn_link.indexOf("gc.synxis.com")>0){
+			$(this).parents(".gi_box_body").css("display","none");
+			$(".dp_main_content").prev().css("display","block");
+		}
+	});
+}
+function gi_btn_right(){
+
+	var gi_child=$("#dp_gibox_displaying").find("a").each(function(){
+	    var btn_link = $(this).attr("href");
+		if (btn_link && btn_link.indexOf("gc.synxis.com")>0){
+			$(this).parents(".gi_box_body").css("display","block");
+			$(".dp_main_content").prev().css("display","none");
+		}
+	});
+}
+function restrict_btn(){
+	var dp_main_child = $("#dp_main_desc_displaying").find("a").each(function(){
+		var btn_link = $(this).attr("href");
+		if (btn_link && btn_link.indexOf("gc.synxis.com")>0){
+			$(this).css("display","none");
+		}
+	});
+}
+
+
+function select_tab_by_uri() {
+    
+    function _prepare_panel_header_clickable() {
+        $(".panel-heading").click(function(e){
+            var id = this.id;
+            var tab_id = id.split("-")[1];
+            var collapse_obj = $("#collapse-"+tab_id);
+            if (collapse_obj.hasClass("in")) {
+                collapse_obj.collapse('hide');
+            } else {
+                collapse_obj.collapse('show');
+            }
+        });
+    }
+
+    var uri = window.location.href;
+    var uri_arr = uri.split("#");
+    var uri_arr_size = uri_arr.length;
+    if ((uri_arr_size > 1) && ($(".nav-tabs a").length > 1)) {
+    
+        var _width = get_width();
+        var tab_id = uri_arr[uri_arr_size-1];
+        if (_width > 767) {
+            $(".nav-tabs a[href='#" + tab_id+ "']").tab('show');
+            reinit_gallery("item_gallery_tab_"+tab_id);
+        } else {
+            $("#collapse-"+tab_id).collapse('show');
+            reinit_gallery("item_gallery_collapse_"+tab_id);
+        }
+    }
+
+    $("a[class='js_tab_toggle'][data-toggle='tab']").on('shown.bs.tab', function (e) {
+        var tab_id = $(this).attr("href").split("#")[1];
+        //rm_gallery("item_gallery_tab_"+tab_id);
+        reinit_gallery("item_gallery_tab_"+tab_id);
+    });
+
+    $("#dp_accordion").on('shown.bs.collapse', function (e) {
+        var target = e.target;
+        var item_id = $(target).attr("data-item_id");
+        //rm_gallery("item_gallery_collapse_"+item_id);
+        reinit_gallery("item_gallery_collapse_"+item_id);
+    });
+
+    _prepare_panel_header_clickable();
+}
+
+
+$(document).ready(function(){
+   var gi_child=$("#dp_gibox_displaying").find("a").each(function(){
+	    var btn_link = $(this).attr("href");
+		if (btn_link && btn_link.indexOf("gc.synxis.com")>0){
+			var gi_btn_temp=$(this).parents(".gi_box_body");
+			$(this).clone(true).insertBefore(".dp_main_content");
+			$(".dp_main_content").prev().css("display","none");
+		}
+	});
+	init_btn();
+	restrict_btn();
+	$(window).resize(function(){
+	
+		screen_width=get_width();
+		if (screen_width <= 768) {
+			gi_btn_top();
+            $("div[id^='item_gallery_collapse_']").each(function(){
+                reinit_gallery(this.id);
+            });
+		} else {
+			gi_btn_right();
+            $("a[class='js_tab_toggle'][data-toggle='tab']").each(function(){
+                var tab_id = $(this).attr("href").split("#")[1];
+                reinit_gallery("item_gallery_tab_"+tab_id);
+            });
+		}
+	});
+    select_tab_by_uri();
+});

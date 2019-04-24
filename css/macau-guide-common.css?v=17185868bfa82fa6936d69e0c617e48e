@@ -1,0 +1,3174 @@
+/*common*/
+body.no-scroll {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+@font-face {
+    font-family: 'OpenSans-Light';
+    src: url("../fonts/OpenSans-Light.ttf");
+}
+
+@font-face {
+    font-family: 'OpenSans-Bold';
+    src: url("../fonts/OpenSans-Bold.ttf");
+}
+
+@font-face {
+    font-family: 'OpenSans-Semibold';
+    src: url("../fonts/OpenSans-SemiBold.ttf");
+}
+
+@font-face {
+    font-family: 'OpenSans';
+    src: url("../fonts/OpenSans-Regular.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border-style: none;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.mobile_mg-title {
+    font-size: 16px;
+    color: #555555;
+    font-family: 'OpenSans-Semibold';
+}
+
+.mobile_mg-more {
+    font-size: 14px;
+    color: #b4975a;
+    font-family: 'OpenSans';
+}
+
+.bdtop,
+.bdleft,
+.bdright,
+.bdbottom {
+    position: relative;
+}
+
+.bdtop::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    -webkit-transform-origin: center top;
+    transform-origin: center top;
+}
+
+.bdleft::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 1px;
+    -webkit-transform-origin: left center;
+    transform-origin: left center;
+}
+
+.bdright::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 1px;
+    -webkit-transform-origin: right center;
+    transform-origin: right center;
+}
+
+.bdbottom::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    -webkit-transform-origin: center bottom;
+    transform-origin: center bottom;
+}
+
+[data-dpr="1"] .bdtop::before,
+[data-dpr="1"] .bdbottom::after {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+}
+
+[data-dpr="1"] .bdleft::before,
+[data-dpr="1"] .bdright::after {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+[data-dpr="2"] .bdtop::before,
+[data-dpr="2"] .bdbottom::after {
+    -webkit-transform: scaleY(0.5);
+    transform: scaleY(0.5);
+}
+
+[data-dpr="2"] .bdleft::before,
+[data-dpr="2"] .bdright::after {
+    -webkit-transform: scaleX(0.5);
+    transform: scaleX(0.5);
+}
+
+[data-dpr="3"] .bdtop::before,
+[data-dpr="3"] .bdbottom::after {
+    -webkit-transform: scaleY(0.33333);
+    transform: scaleY(0.33333);
+}
+
+[data-dpr="3"] .bdleft::before,
+[data-dpr="3"] .bdright::after {
+    -webkit-transform: scaleX(0.33333);
+    transform: scaleX(0.33333);
+}
+
+[data-border-color="#e5e5e6"]::before,
+[data-border-color="#e5e5e6"]::after {
+    background-color: #e5e5e6;
+}
+
+[data-border-color="#eeeeee"]::before,
+[data-border-color="#eeeeee"]::after {
+    background-color: #eeeeee;
+}
+
+[data-border-color="#cfcfcf"]::before,
+[data-border-color="#cfcfcf"]::after {
+    background-color: #cfcfcf;
+}
+
+.mgtc-content .swiper-button-next,
+.swiper-button-prev {
+    z-index: 1 !important;
+}
+
+.mgtc-content .swiper-pagination {
+    z-index: 0 !important;
+}
+
+.mgtc-content .swiper-container {
+    height: 100%;
+}
+
+.mgtc-content .swiper-mobile-container {
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+    z-index: 1;
+}
+
+.macau_active {
+    background-color: #f6f6f6;
+}
+.macau_mask_layer{
+    position: absolute;
+    top: 0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: none;
+}
+/*tab*/
+
+.macau_guide_content {
+    width: 100%;
+    height: 100%;
+}
+
+.macau_guide_tab {
+    max-width: 1260px;
+    width: calc(100% - 100px);
+    margin: 0 auto;
+}
+
+.macau_guide_tab-nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    position: relative;
+    margin-right: -15px;
+}
+
+.macau_guide_tab-nav>div {
+    flex-grow: 1;
+}
+
+.macau_guide_tab-nav:after {
+    content: "";
+    height: 2px;
+    background-color: #dcdcdc;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.macau_guide_tab-nav .select {
+    position: relative;
+    color: #b4975a;
+}
+
+.macau_guide_tab-nav .select:after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    background-color: #b4975a;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.mgtn-tab {
+    text-align: center;
+    font-size: 24px;
+    line-height: 64px;
+    height: 64px;
+    cursor: pointer;
+    color: #aaaaaa;
+}
+
+.macau_guide_tab-content {
+    padding-bottom: 100px;
+    padding-top: 10px;
+}
+
+.macau_guide_tab-content .content-hide {
+    display: none;
+}
+
+.mmgt-container {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .macau_guide_tab {
+        width: 100%;
+        margin-left: -15px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    .macau_guide_tab-nav {
+        display: none;
+    }
+    .mmgt-container.swiper-container {
+        position: relative;
+        height: 34px;
+        margin: 10px -30px 0 auto !important;
+        width: auto;
+        display: block;
+    }
+    .mmgt-container:after {
+        content: "";
+        height: 2px;
+        background-color: #dcdcdc;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
+    .mmgt-container .select {
+        position: relative;
+        color: #b4975a;
+    }
+    .mmgtn-tab-title {
+        display: inline-block;
+        height: 100%;
+        position: relative;
+    }
+    .mmgt-container .select span:after {
+        content: "";
+        height: 2px;
+        background-color: #b4975a;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 50%;
+        margin-left: -25%;
+    }
+    .mmgtn-tab {
+        text-align: center;
+        box-sizing: content-box;
+        height: 34px;
+        cursor: pointer;
+        font-size: 16px;
+        line-height: 34px;
+        color: #aaaaaa;
+        flex-basis: auto;
+        width: auto !important;
+        padding-right: 135px;
+    }
+    .mmgtn-tab:last-child {
+        padding-right: 0;
+    }
+    .macau_guide_tab-content {
+        padding-bottom: 40px;
+        padding-top: 13px;
+        margin-right: -30px;
+    }
+}
+@media (max-width: 724px) {
+    .mmgtn-tab {
+        padding-right: 85px;
+    }
+}
+@media (max-width: 500px) {
+    .mmgtn-tab {
+        padding-right: 35px;
+    }
+}
+
+/*end*/
+
+/*sub_title*/
+
+.sub_title-inner {
+    position: relative;
+    margin: 85px auto 35px auto;
+    text-align: center;
+}
+
+.sub_title {
+    font-size: 30px;
+    color: #555555;
+    font-family:'OpenSans-Semibold' ;
+    line-height: 36px;
+}
+.sub_title-summaries{
+    font-size: 24px;
+    line-height: 32px;
+    color: #555555;
+    width: 80%;
+    margin: 22px auto 0 auto;
+    font-family:'OpenSans-Light' ;
+}
+/*end*/
+
+/*duty_free样式*/
+
+.duty_free_shopping {
+    display: flex;
+    margin: 0 auto;
+}
+
+.duty_free_shopping-item a {
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.duty_free_shopping-item {
+    flex-basis: calc(100%/3);
+    margin-right: 22px;
+}
+
+.duty_free_shopping-item:last-child {
+    margin-right: 0;
+}
+
+.dfsi-top {
+    position: relative;
+    padding-top: 68%;
+}
+
+.dfsi-top img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.dfsi-title1 {
+    font-size: 20px;
+    color: #b4975a;
+    font-family:'OpenSans' ;
+    line-height: 28px;
+}
+
+.dfsi-title2 {
+    font-size: 24px;
+    color: #555555;
+    font-weight: 600;
+    margin:8px 0;
+    font-family:'OpenSans-Semibold' ;
+    line-height: 32px;
+}
+
+.dfsi-content {
+    font-size: 16px;
+    color: #555555;
+    font-family:'OpenSans-Light' ;
+    line-height:32px;
+}
+
+.dfsi-content a {
+    color: #555555;
+    text-decoration: none;
+}
+
+.dfsi-content p {
+    margin: 0;
+}
+
+.dfsti-bottom {
+    padding:11px 0 19px 19px;
+}
+
+.duty_free_shopping-item:hover {
+    box-shadow: 0px 0px 10px 0px rgba(149, 149, 149, 0.3);
+}
+.duty_free_shopping-item:hover .macau_mask_layer{
+    display: block;
+}
+.duty_free_shopping-item:hover .dfsi-title2 {
+    color: #b4975a;
+}
+
+.dfsi-local:before {
+    content: '';
+    background: url("../images/macau_guide_icon/local.png") no-repeat center;
+    background-size: 13px 17px;
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    margin-right: 11px;
+    vertical-align: middle;
+    margin-top: -3px;
+}
+
+.dfsi-tel:before {
+    content: '';
+    background: url("../images/macau_guide_icon/phone.png") no-repeat center;
+    background-size: 17px 17px;
+    width: 17px;
+    height: 17px;
+    display: inline-block;
+    margin-right: 11px;
+    vertical-align: middle;
+    margin-top: -3px;
+}
+
+.dfsi-time:before {
+    content: '';
+    background: url("../images/macau_guide_icon/time.png") no-repeat center;
+    background-size: 15px 16px;
+    width: 17px;
+    height: 16px;
+    display: inline-block;
+    margin-right: 11px;
+    vertical-align: middle;
+    margin-top: -3px;
+}
+
+.mobile_duty_free-all {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .duty_free_shopping-all {
+        display: none;
+    }
+    .mobile_duty_free-all {
+        position: relative;
+        width: 100%;
+        display: block;
+    }
+    .mobile_duty_free a {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+    .mobile_duty_free.swiper-container {
+        width: 100%;
+        height: 100%
+    }
+    .mobile_duty_free-all .mdfa-top {
+        padding-top: 67.8929765886288%;
+        position: relative;
+    }
+    .mobile_duty_free-all .mdfa-top img {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .mobile_duty_free-all .mdfa-bottom {
+        padding: 10px 9px 0 9px;
+    }
+    .mobile_duty_free-all .mdfa-bottom-title1 {
+        font-size: 14px;
+        font-family:'OpenSans' ;
+        color: #555555;
+        line-height: 16px;
+    }
+}
+
+/* end*/
+
+/*local_restaurant*/
+
+.local_restaurant-total{
+    margin-right: -35px
+}
+.local_restaurant-all {
+    margin: -15px -26px 60px -26px;
+    position: relative;
+}
+
+.local_restaurant-all .swiper-container {
+    position: initial;
+    padding: 10px;
+}
+.local_restaurant-link{
+    display: block;
+    height:100%;
+    width:100%;
+    padding-right: 35px;
+}
+
+.local_restaurant-left {
+    padding: 5px;
+    flex-basis: calc((100% - 35px) / 2);
+}
+
+.local_restaurant-left-item {
+    text-decoration: none;
+    margin-right: 10px;
+    padding: 15px;
+    zoom: 1;
+    width: 100%;
+}
+
+.local_restaurant-left-item:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+}
+
+.local_restaurant-left-item:hover {
+    box-shadow: 0px 0px 15px 0px rgba(149, 149, 149, 0.3);
+}
+.local_restaurant-left-item:hover .macau_mask_layer{
+    display: block;
+}
+.local_restaurant-left-item:hover .mlri-text-title2 {
+    color: #b4975a;
+}
+
+.local_restaurant-left-inner {
+    width: 35%;
+    float: left;
+}
+
+.mlri-text {
+    width: 65% ;
+    float: left;
+    padding: 2px 20px 0 20px;
+}
+.mlri-img img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.mlri-img {
+    padding-top: 66.6666666666667%;
+    position: relative;
+}
+
+.mlri-text-title1 {
+    font-size: 20px;
+    color: #b4975a;
+    font-family: 'OpenSans';
+    line-height: 32px;
+}
+
+.mlri-text-title2 {
+    font-family: 'OpenSans-Semibold';
+    font-size: 24px;
+    color: #555555;
+    line-height: 36px;
+    margin-top: -3px;
+}
+
+.mlri-text-content {
+    font-size: 20px;
+    color: #555555;
+    line-height: 28px;
+    height: 56px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    font-family: 'OpenSans-Light';
+}
+.lrta-text-inner{
+    line-height: 28px;
+    height: 56px;
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.local_restaurant-left-title {
+    font-size: 24px;
+    color: #555555;
+    margin-left: 15px;
+    margin-bottom: 6px;
+    font-family: 'OpenSans-Semibold';
+    line-height: 36px;
+}
+
+.local_restaurant-all .swiper-button-prev {
+    background: url("../images/macau_guide_icon/left-arrow.svg") no-repeat center;
+    background-size: 4vw 4vw;
+    width: 4vw;
+    height: 4vw;
+    outline: none;
+    left: calc(-7vw + 25px);
+}
+
+.local_restaurant-all .swiper-button-next {
+    background: url("../images/macau_guide_icon/right-arrow.svg") no-repeat center;
+    background-size: 4vw 4vw;
+    width: 4vw;
+    height: 4vw;
+    outline: none;
+    right: calc(-7vw + 60px);
+}
+
+.local_restaurant-all .swiper-container-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    bottom: -60px;
+}
+
+.local_restaurant-all .swiper-button-prev,
+.local_restaurant-all .swiper-button-next {
+    margin-top: -2vw;
+}
+
+.local_restaurant-all .swiper-pagination-bullet-active {
+    background-color: #b4975a !important;
+    opacity: 0.8 !important;
+}
+
+.local_restaurant-all .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #b4975a;
+    opacity: 0.4;
+    margin:0 7px!important;
+}
+
+.mlri-text-link span {
+    color: #555555;
+    margin-right: 5px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 1560px) {
+    .local_restaurant-all .swiper-button-next {
+        right: -40px;
+    }
+    .local_restaurant-all .swiper-button-prev {
+        left: -75px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .local_restaurant-all .swiper-button-next {
+        right: -20px;
+    }
+    .local_restaurant-all .swiper-button-prev {
+        left: -55px;
+    }
+}
+
+@media (max-width: 1366px) {
+    .local_restaurant-all .swiper-button-next {
+        right: 0px;
+    }
+    .local_restaurant-all .swiper-button-prev {
+        left: -35px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .mlri-text-title2 {
+        font-size: 20px;
+    }
+    .mlri-text-content {
+        font-size: 18px;
+        line-height: 23px;
+        max-height: 45px;
+        margin-top: 10px;
+    }
+    .mlri-text-link {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .mlri-text-title2 {
+        font-size: 18px;
+    }
+    .mlri-text-content {
+        font-size: 16px;
+        line-height: 18px;
+        max-height: 36px;
+        margin-top: 3px;
+    }
+    .mlri-text-link {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .local_restaurant-all {
+        display: none;
+    }
+    .mobile_top_sights-all {
+        display: block;
+    }
+    .mmtsi-bottom-title1 {
+        font-family:'OpenSans';
+        font-size: 10px;
+        line-height: 15px;
+        color: #555555;
+        opacity: 0.5;
+    }
+    .mmtsi-bottom-title1:before {
+        content: '';
+        background: url("../images/macau_guide_icon/bufft_gray.png") no-repeat center;
+        background-size: 7px 8px;
+        width: 7px;
+        height: 8px;
+        display: inline-block;
+        margin-right: 5px;
+        vertical-align: middle;
+        margin-top: -3px;
+    }
+    .mmtsi-bottom-title2 {
+        font-family: 'OpenSans';
+        font-size: 14px;
+        line-height: 18px;
+        color: #555555;
+    }
+    .lrsi-bottom {
+        padding: 5px 0 0 6px;
+    }
+    .mmlri-text-content {
+        display: none;
+    }
+}
+
+/*end*/
+
+/*macau_exploration*/
+
+.macau_exploration {
+    margin-left: -20px;
+    margin-bottom: -10px;
+    zoom: 1;
+}
+
+.macau_exploration:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0
+}
+
+.local_restaurant-content {
+    width: 65%;
+    float: left;
+}
+
+.macau_exploration-left {
+    height: 662px;
+}
+
+.scroll_list_image {
+    padding: 8px 10px 8px 8px;
+    height: 612px;
+    overflow: auto;
+}
+
+.scroll_list_image::-webkit-scrollbar {
+    width: 10px;
+}
+
+.scroll_list_image::-webkit-scrollbar-thumb {
+    background-color: #efefef;
+    border-radius: 5px;
+}
+
+.macau_exploration-left-item {
+    text-decoration: none;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.macau_exploration-left-item:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0
+}
+
+.macau_exploration-left-item {
+    zoom: 1
+}
+
+.macau_exploration-left-item:hover {
+    box-shadow: 0px 0px 15px 0px rgba(149, 149, 149, 0.3);
+}
+.macau_exploration-left-item:hover .macau_mask_layer{
+    display: block;
+}
+.macau_exploration-left-item:hover .meli-text-title2 {
+    color: #b4975a;
+    font-family: 'OpenSans-Semibold';
+}
+
+.meli-inner {
+    width: 32%;
+    float: left;
+}
+
+.meli-img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding-top: 68.2352941176471%;
+}
+
+.meli-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.meli-text {
+    padding: 4px 0 0 20px;
+    width: 65%;
+    float: left;
+}
+
+.meli-text-title1 {
+    font-size: 20px;
+    color: #b4975a;
+    font-family:'OpenSans' ;
+    line-height:32px;
+}
+
+.meli-text-title2 {
+    font-size: 24px;
+    color: #555555;
+    font-weight: 600;
+    font-family:'OpenSans-Semibold' ;
+    line-height: 26px;
+}
+
+.meli-text-content {
+    font-size: 20px;
+    color: #525555;
+    line-height: 28px;
+    font-family:'OpenSans-Light' ;
+    margin-top:10px;
+    zoom:1;
+}
+
+.meli-text-inner {
+    float: left;
+    margin-right: 10px;
+}
+
+.meli-more {
+    width: 3em;
+    height: 60px;
+    float: right;
+    margin-top: -1.3em;
+}
+
+.macau_exploration-right {
+    margin-left: 1.3vw;
+    width: 32%;
+    float: right;
+}
+
+.macau_exploration-left-title,
+.macau_exploration-right-title {
+    font-size: 24px;
+    color: #555555;
+    font-family: 'OpenSans-Semibold';
+}
+
+.macau_exploration-left-title {
+    margin-left: 23px;
+}
+
+.macau_exploration-right-title {
+    margin-bottom: 24px;
+}
+
+.macau_exploration-right-date {
+    border: 1px solid #e5e5e5;
+    padding: 36px;
+    position: relative;
+    height: 582px;
+}
+/*.macau_exploration-right-date ul{
+    list-style: none;
+}
+.macau_exploration-right-date li::before{
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    background: #000000;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    margin-right: 5px;
+}*/
+.macau_exploration-right-date h2 {
+    font-family: 'OpenSans-Semibold';
+    font-size: 48px;
+    color: #333333;
+}
+
+.macau_exploration-right-date h3 {
+    font-family: 'OpenSans-Semibold';
+    font-size: 24px;
+    color: #333333;
+    margin-top: 15px;
+}
+
+.macau_exploration-right-date li{
+    font-family:'OpenSans-Light';
+    font-size: 16px;
+    line-height: 28px;
+    color: #333333;
+}
+
+.merd-date {
+    text-align: center;
+    color: #333333;
+}
+
+.merd-date p {
+    margin: 0;
+    font-family: 'OpenSans-Semibold';
+
+}
+
+.merd-date p:nth-child(1) {
+    margin-top: 17px;
+    font-size: 48px;
+}
+
+.merd-date p:nth-child(2) {
+    font-size: 24px;
+}
+
+.merd-content {
+    font-size: 16px;
+    color: #333333;
+    margin: 39px 0 0 0;
+    line-height: 28px;
+    padding: 0;
+    font-family: 'OpenSans-Light';
+}
+
+.merd-content li {
+    list-style: none;
+}
+
+.merd-cal {
+    height: 63px;
+    border: solid 1px #b4975a;
+    color: #b4975a;
+    font-size: 20px;
+    line-height: 63px;
+    position: absolute;
+    bottom: 40px;
+    text-decoration: none;
+    width: 79.95%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    text-align: center;
+}
+.merd-cal:hover{
+    color: #b4975a;
+}
+.merd-cal span {
+    /* width: 100%; */
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    margin-left: 1.7vw;
+}
+
+/* .merd-cal span:before {
+    content: "";
+    background: url("../images/macau_guide_icon/cal.png") no-repeat center;
+    background-size: 30px 33px;
+    width: 30px;
+    height: 33px;
+    display: inline-block;
+    position: absolute;
+    left: 1.45vw;
+    top: 50%;
+    margin-top: -16px;
+} */
+
+.merd-cal .calendar-icon {
+    width: 30px;
+    height: 63px;
+    display: inline-block;
+    background: url("../images/macau_guide_icon/cal.png") no-repeat center;
+    background-size: 30px 33px;
+    vertical-align: top;
+}
+@media (max-width: 1366px) {
+    .scroll_list_image {
+        height: 605px;
+    }
+    .macau_exploration-right-date {
+        height: 572px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .meli-text-title2 {
+        font-size: 20px;
+    }
+    .meli-text-content {
+        font-size: 18px;
+        line-height: 23px;
+        margin-top: 7px;
+    }
+    .merd-cal {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .meli-text-title2 {
+        font-size: 18px;
+    }
+    .meli-text-content {
+        font-size: 16px;
+        line-height: 18px;
+        margin-top: 5px;
+    }
+    .merd-cal {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .macau_exploration {
+        display: none;
+    }
+    .scroll_list_image {
+        display: none;
+    }
+    .macau_exploration {
+        display: block;
+        margin-left: 0;
+        justify-content: initial;
+    }
+    .macau_exploration-right {
+        margin-top: 15px;
+        margin-left: 0;
+        flex-basis: 0;
+        float: none;
+        width: 100%;
+    }
+    .macau_exploration-right-title,
+    .macau_exploration-left-title {
+        font-size: 16px;
+        color: #555555;
+        line-height: 18px;
+        font-family: 'OpenSans-Semibold';
+    }
+    .macau_exploration-left-title {
+        margin: 15px 0 17px 0;
+    }
+    .macau_exploration-right-title {
+        margin: 15px 0 17px 0;
+    }
+    .local_restaurant-content {
+        float: none;
+    }
+    .mobile_latest_guide-outer {
+        margin-top: -13px !important;
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+    .macau_exploration-right-date {
+        border: 1px solid #e5e5e5;
+        padding: 36px;
+        position: relative;
+        height: auto;
+    }
+    .macau_exploration-right-date h2{
+        font-family: 'OpenSans-Semibold';
+        font-size: 24px;
+        color: #333333;
+    }
+    .macau_exploration-right-date h3 {
+        font-family: 'OpenSans-Semibold';
+        font-size: 12px;
+        color: #333333;
+        margin-top: 15px;
+    }
+    .macau_exploration-right-date li{
+        font-family:'OpenSans-Light';
+        font-size: 12px;
+        color: #999999;
+        line-height: 18px;
+    }
+    .merd-cal {
+        height: 41px;
+        border: solid 1px #b4975a;
+        color: #b4975a;
+        font-size: 14px;
+        line-height: 41px;
+        position: initial;
+        bottom: 0;
+        text-decoration: none;
+        width: 79.95%;
+        left: 0;
+        transform: none;
+        text-align: center;
+        margin: 30px auto 0 auto;
+        display: block;
+    }
+    .merd-cal span {
+        /* width: 100%; */
+        display: inline-block;
+        position: relative;
+        vertical-align: middle;
+        margin-left: 1.8vw;
+    }
+    .merd-cal .calendar-icon {
+        width: 15px;
+        height: 15px;
+        display: inline-block;
+        background: url("../images/macau_guide_icon/cal.png") no-repeat center;
+        background-size: 15px 15px;
+        vertical-align: middle;
+    }
+}
+
+/* end*/
+
+/*must_buys*/
+
+.must_buys {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto -60px auto;
+    justify-content: flex-start;
+}
+
+.must_buys-item {
+    flex-basis: calc(100% / 3);
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 60px;
+    zoom: 1;
+}
+.must_buys-item::after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+}
+.mmbi-left{
+    float:left;
+}
+.must_buys-item:hover .mmbi-right-title {
+    color: #b4975a;
+}
+
+.mmbi-left-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px 0px rgba(149, 149, 149, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mmbi-left-outer {
+    width: 45px;
+    height: 45px;
+}
+
+.mmbi-left-icon {
+    width: 45px;
+    height: 45px;
+}
+
+.mmbi-right {
+    margin-left: 130px;
+}
+
+.mmbi-right p {
+    margin: 0;
+}
+
+.mmbi-right-title {
+    font-size: 24px;
+    color: #555555;
+    font-family: 'OpenSans-Semibold';
+    line-height: 36px;
+}
+
+.mmbi-right-text {
+    font-size: 20px;
+    color: #555555;
+    font-family: 'OpenSans-Light';
+    margin-top: 13px!important;
+    line-height:28px;
+}
+
+@media (max-width: 910px) {
+    /* .mmbi-right{
+         margin-left: ;
+     }*/
+    .must_buys-item {
+        flex-basis: calc((100% - 88px) / 2);
+    }
+}
+
+/*mobile mobile_must_buys*/
+
+.mobile_must_buys_outer {
+    display: none;
+}
+
+.mobile_must_buys {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: -15px;
+}
+
+.mobile_must_buys-item {
+    flex-basis: calc(100% / 3);
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 30px;
+}
+
+.mmmbi-left {
+    margin: 0 auto;
+    width: 65px;
+}
+.mmmbi-left-outer:hover{
+    background-color: #b4975a;
+}
+.mobile_must_buys-item:hover .mmmbi-right-title{
+    color: #b4975a;
+}
+
+.mmmbi-left-outer {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px 0px rgba(149, 149, 149, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mmmbi-left-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.mmmbi-right {
+    margin-top: 17px;
+}
+
+.mmmbi-right p {
+    margin: 0;
+}
+
+.mmmbi-right-title {
+    font-size: 14px;
+    color: #555555;
+    font-family: 'OpenSans-Semibold';
+    line-height: 18px;
+}
+
+@media (max-width: 768px) {
+    .mobile_must_buys_outer {
+        display: block;
+    }
+    .must_buys-outer {
+        display: none;
+    }
+}
+
+/*end*/
+
+/*practical_info*/
+
+.practical_info {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    justify-content: flex-start;
+}
+
+.practical_info-item {
+    flex-basis: 25%;
+    text-align: center;
+    padding: 40px;
+    margin-bottom: 30px;
+}
+
+.practical_info-item:hover {
+    box-shadow: 0px 0px 10px 0px rgba(149, 149, 149, 0.3);
+}
+.practical_info-item:hover .macau_mask_layer{
+    display: block;
+}
+.practical_info-item:hover .mpii-right-title {
+    color: #b4975a;
+}
+
+.mpii-left {
+    margin: 0 auto;
+    width: 71px;
+    height: 71px;
+    overflow: hidden;
+}
+
+.mpii-left img {
+    display: block;
+    width: 71px;
+    height: 71px;
+}
+
+.mpii-right {
+    margin-top: 40px;
+}
+
+.mpii-right p {
+    margin: 0;
+}
+
+.mpii-right-title {
+    font-size: 24px;
+    color: #555555;
+    font-family: 'OpenSans-Semibold';
+    line-height: 36px;
+}
+
+.mpii-right-text {
+    font-size: 20px;
+    color: #333333;
+    margin-top: 15px !important;
+    line-height: 28px;
+    font-family: 'OpenSans-Light';
+}
+
+@media (max-width: 1280px) {
+    .mpii-right-text {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .practical_info-item {
+        flex-basis: calc((100% - 50px)/3);
+    }
+}
+
+@media (max-width: 890px) {
+    .practical_info-item {
+        padding: 20px;
+    }
+}
+
+/*mobile mobile_must_buys*/
+
+.mobile_practical_info-outer {
+    display: none;
+}
+
+.mobile_practical_info {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: flex-start;
+}
+
+.mobile_practical_info-item {
+    flex-basis: calc(100% / 3);
+    text-align: center;
+    text-decoration: none;
+    margin-bottom: 30px;
+}
+.mobile_practical_info-item:hover .mmpii-left-outer{
+    background-color: #b4975a;
+}
+.mobile_practical_info-item:hover .mmpii-right-title{
+    color: #b4975a;
+}
+
+
+.mmpii-left-outer {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 10px 0px rgba(149, 149, 149, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mmpii-left {
+    margin: 0 auto;
+    width: 65px;
+}
+
+.mmpii-left-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.mmpii-right {
+    margin-top: 17px;
+}
+
+.mmpii-right p {
+    margin: 0;
+}
+
+.mmpii-right-title {
+    font-size: 14px;
+    color: #555555;
+    font-family: 'OpenSans-Semibold';
+    line-height: 18px;
+}
+
+@media (max-width: 768px) {
+    .mobile_practical_info-outer {
+        display: block;
+        margin-bottom: -30px;
+    }
+    .practical_info-outer {
+        display: none;
+    }
+}
+
+/*end*/
+
+/*end*/
+
+/*sands_shopes*/
+
+.sands_shopes {
+    display: flex;
+    margin: 0 auto;
+}
+
+.sands_shopes-item {
+    flex-basis: calc(100%/4);
+    margin-right: 22px;
+    position: relative;
+}
+
+.sands_shopes-item a {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+.sands_shopes-item:last-child {
+    margin-right: 0;
+}
+
+.mssi-top {
+    position: relative;
+    padding-top: 68.4931506849315%;
+}
+
+.mssi-top img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.mmsi-bottom {
+    padding:11px 0 19px 19px;
+}
+
+.mssi-title1 {
+    font-size: 24px;
+    color: #555555;
+    font-family: 'OpenSans-Semibold';
+    line-height: 32px;
+}
+
+.mssi-title2 {
+    font-size: 20px;
+    color: #535353;
+    margin: 11px 0;
+    font-family: 'OpenSans-Light';
+    line-height: 28px;
+}
+
+.mssi-content {
+    font-size: 16px;
+    color: #555555;
+    font-family: 'OpenSans-Light';
+    line-height: 32px;
+}
+
+.mssi-content p {
+    margin: 0;
+}
+
+.sands_shopes-item:hover {
+    box-shadow: 0px 0px 10px 0px rgba(149, 149, 149, 0.3);
+}
+.sands_shopes-item:hover .macau_mask_layer{
+    display: block;
+}
+.sands_shopes-item:hover .mssi-title1 {
+    color: #b4975a;
+}
+
+.mssi-local:before {
+    content: '';
+    background: url("../images/macau_guide_icon/local.png") no-repeat center;
+    background-size: 13px 17px;
+    width: 13px;
+    height: 17px;
+    display: inline-block;
+    margin-right: 11px;
+    vertical-align: top;
+    margin-top: 6px;
+}
+
+.mssi-local .display-inline-block{
+    margin-top: -2px;
+}
+
+.mssi-time1 {
+    display: inline-block;
+    vertical-align: top;
+}
+.mssi-time1 .display-inline-block{
+    margin-top: -4px;
+}
+.mssi-time1:before {
+    content: '';
+    background: url("../images/macau_guide_icon/time.png") no-repeat center;
+    background-size: 15px 16px;
+    width: 15px;
+    height: 16px;
+    display: inline-block;
+    margin-right: 9px;
+    vertical-align: top;
+    margin-top: 3px;
+}
+
+.mssi-content p:nth-child(3) {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.mssi-time:before {
+    content: '';
+    width: 15px;
+    height: 16px;
+    display: inline-block;
+    margin-right: 9px;
+}
+
+/*mobile_sands_shopes*/
+
+.mobile_sands_shopes-outer {
+    margin-top: -10px;
+    margin-right: -12px;
+    margin-left: -12px;
+}
+
+.mobile_sands_shopes {
+    display: none;
+}
+
+.mobile_sands_shopes-item {
+    position: relative;
+    padding: 13px 12px;
+}
+
+.mobile_sands_shopes-item a:after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+}
+
+.mobile_sands_shopes-item a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    zoom: 1;
+}
+
+.mmmsi-top-outer {
+    width: 37%;
+    float: left;
+}
+
+.mmssi-top {
+    position: relative;
+    padding-top: 67.9245283018868%;
+}
+
+.mmssi-top img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.mmmsi-bottom {
+    padding: 6px 0 6px 17px;
+    width: 63%;
+    float: left;
+}
+
+.mmssi-title1 {
+    font-size: 14px;
+    color: #555555;
+    font-family: 'OpenSans';
+    line-height: 18px;
+    margin-top: -3px;
+}
+
+.mmssi-title2 {
+    font-size: 12px;
+    color: #333333;
+    opacity: 0.65;
+    margin: 7px 0 16px 0;
+    font-family: 'OpenSans';
+    line-height: 14px;
+}
+
+.mmssi-content {
+    font-size: 10px;
+    font-family: 'OpenSans';
+    line-height: 14px;
+    color: #555555;
+    opacity: 0.5;
+}
+
+.mmssi-content p {
+    margin: 0;
+}
+
+.mmssi-local:before {
+    content: '';
+    background: url("../images/macau_guide_icon/local.png") no-repeat center;
+    background-size: 6px 8px;
+    width: 6px;
+    height: 8px;
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+    margin-top: -3px;
+}
+
+.mobile_sands_shopes-item:last-child::after {
+    height: 0;
+}
+
+@media (max-width: 768px) {
+    .mobile_sands_shopes {
+        display: block;
+    }
+    .sands_shopes {
+        display: none;
+    }
+}
+
+/*end*/
+
+/*end*/
+
+/*macau_top_sights*/
+
+.macau_top_sights-all {
+    margin: -10px -10px 170px -10px;
+    position: relative;
+}
+
+.macau_top_sights.swiper-container {
+    margin: 0 auto;
+    padding: 10px;
+    position: static;
+}
+
+.macau_top_sights-all .mtsi-top {
+    padding-top: 67.8304239401496%;
+    position: relative;
+}
+
+.macau_top_sights-all .mtsi-top img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.macau_top_sights-all .mtsi-bottom {
+    padding:11px 19px 19px 19px;
+}
+
+.macau_top_sights-all .mtsi-bottom-title1 {
+    font-size: 20px;
+    color: #b4975a;
+    font-family:'OpenSans' ;
+    line-height: 32px;
+}
+
+.macau_top_sights-all .mtsi-bottom-title2 {
+    font-size: 24px;
+    color: #555555;
+    font-family:'OpenSans-Semibold' ;
+    line-height: 32px;
+}
+
+.macau_top_sights-all .mtsi-bottom-content {
+    font-size: 20px;
+    line-height: 28px;
+    color: #555555;
+    font-family:'OpenSans-Light' ;
+    margin-top: 3px;
+}
+
+.macau_top_sights-all .swiper-button-prev {
+    background: url("../images/macau_guide_icon/left-arrow.svg") no-repeat center;
+    background-size: 4vw 4vw;
+    width: 4vw;
+    height: 4vw;
+    outline: none;
+    left: calc(-7vw + 10px);
+}
+
+.macau_top_sights-all .swiper-button-next {
+    background: url("../images/macau_guide_icon/right-arrow.svg") no-repeat center;
+    background-size: 4vw 4vw;
+    width: 4vw;
+    height: 4vw;
+    outline: none;
+    right: calc(-7vw + 10px);
+}
+
+.macau_top_sights-all .swiper-button-prev,
+.macau_top_sights-all .swiper-button-next {
+    margin-top: -2vw;
+}
+.macau_top_sights-all .swiper-pagination{
+    height:12px;
+}
+
+.macau_top_sights-all .swiper-container-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    bottom: -60px;
+}
+
+.macau_top_sights-all .swiper-pagination-bullet-active {
+    background-color: #b4975a !important;
+    opacity: 0.8 !important;
+}
+
+.macau_top_sights-all .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #b4975a;
+    opacity: 0.4;
+    margin:0 7px!important;
+}
+
+.mtsi:hover {
+    box-shadow: 0px 0px 15px 0px rgba(149, 149, 149, 0.3);
+}
+.mtsi:hover .macau_mask_layer{
+    display: block;
+}
+.mtsi:hover .mtsi-bottom-title2 {
+    color: #b4975a;
+}
+.macau_top_sights-all .swiper-slide{
+    height:auto;
+}
+.macau_top_sights-all .mtsi-link {
+    text-decoration: none;
+    display: block;
+    height:100%;
+    width:100%;
+}
+.macau_top_sights-all .mtsi{
+    height: 100%;
+}
+.mobile_mtsi-bottom-content {
+    display: none;
+}
+
+.mobile_top_sights-all {
+    display: none;
+}
+
+@media (max-width: 1560px) {
+    .macau_top_sights-all .swiper-button-next {
+        right: -90px;
+    }
+    .macau_top_sights-all .swiper-button-prev {
+        left: -90px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .macau_top_sights-all .swiper-button-next {
+        right: -70px;
+    }
+    .macau_top_sights-all .swiper-button-prev {
+        left: -70px;
+    }
+}
+
+@media (max-width: 1366px) {
+    .macau_top_sights-all .swiper-button-next {
+        right: -50px;
+    }
+    .macau_top_sights-all .swiper-button-prev {
+        left: -50px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .macau_top_sights-all .mtsi-bottom-content {
+        font-size: 18px;
+        line-height: 24px;
+    }
+    .macau_top_sights-all .mtsi-bottom-title2 {
+        font-size: 22px;
+    }
+}
+
+/*mobile*/
+
+@media (max-width: 768px) {
+    .mobile_top_sights-all {
+        position: relative;
+        width: 100%;
+        display: block;
+    }
+    .macau_top_sights-all {
+        display: none;
+    }
+    .mobile_top_sights.swiper-container {
+        width: 100%;
+    }
+    .mobile_top_sights-all .mmtsi-top {
+        padding-top: 67.6666%;
+        position: relative;
+    }
+    .mobile_top_sights-all .mmtsi-top img {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .mobile_top_sights-all .mmtsi-bottom {
+        padding: 12px 9px;
+    }
+    .mobile_top_sights-all .mmtsi-bottom-title{
+        font-family:'OpenSans' ;
+        line-height: 18px;
+        font-size: 14px;
+        color: #555555;
+    }
+    .mobile_top_sights-all .mmtsi-link {
+        text-decoration: none;
+    }
+    .mmtsi-bottom-content {
+        font-size: 12px;
+        line-height: 14px;
+        color: #999999;
+        font-family: 'OpenSans';
+        margin-top: 3px;
+    }
+}
+
+/*latest_guide*/
+
+.latest_guide {
+    margin: -15px 0 0 -15px;
+}
+
+.latest_guide-left-item {
+    padding: 15px;
+    zoom: 1;
+    width: 100%;
+}
+
+.latest_guide-left-item::after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+}
+
+.lgli-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.lgli-inner {
+    width: 23%;
+    float: left;
+}
+
+.lgli-img {
+    padding-top: 67.98%;
+    position: relative;
+}
+
+.lgli-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.lgli-text {
+    padding-left: 29px;
+    width: 77%;
+    float: right;
+}
+
+.lgli-text-title1 {
+    font-size: 24px;
+    color: #555555;
+    font-family: 'OpenSans-Semibold';
+    line-height:36px;
+    margin-top: 2px;
+}
+
+.lgli-text-content {
+    font-size: 20px;
+    color: #525555;
+    line-height: 28px;
+    font-family: 'OpenSans-Light';
+    margin-top: 27px;
+}
+
+.lgli-text-link {
+    margin-top: 17px;
+    font-family: 'OpenSans-Light';
+}
+
+.lgli-text-link a {
+    color: #d1b883;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.lgli-text-user {
+    margin-right: 60px;
+}
+
+.lgli-text-user:before {
+    content: "";
+    background: url("../images/macau_guide_icon/user.png");
+    background-size: 15px 16px;
+    width: 15px;
+    height: 16px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.lgli-text-tag:before {
+    content: "";
+    background: url("../images/macau_guide_icon/tag.png");
+    background-size: 15px 16px;
+    width: 15px;
+    height: 16px;
+    display: inline-block;
+    margin-right: 10px;
+}
+.lgli-text-link a:hover{
+    color:#d1b883;
+}
+.latest_guide-left-item:hover {
+    box-shadow: 0px 0px 15px 0px rgba(149, 149, 149, 0.3);
+}
+.latest_guide-left-item:hover .macau_mask_layer{
+    display: block;
+}
+
+.latest_guide-left-item:hover .lgli-text-title1 {
+    color: #b4975a;
+}
+
+/*mobile_latest_guide*/
+
+.mobile_latest_guide-outer {
+    margin-top: -17px;
+}
+
+.mobile_latest_guide {
+    margin: 0 auto;
+    display: none;
+}
+
+.mobile_mg-title .mobile_mg-more {
+    float: right;
+}
+.mlgo-clear{
+    clear:both;
+    height: 0;
+    line-height: 0;
+    font-size: 0
+}
+.mobile_latest_guide-item {
+    position: relative;
+    padding: 13px 12px;
+}
+
+.mlgo-top-outer {
+    width: 37%;
+    float:left;
+}
+
+.mlgo-top {
+    position: relative;
+    padding-top: 69.23%;
+}
+
+.mlgo-top img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.mlgo-bottom {
+    padding: 0 0 0 17px;
+    width: 63%;
+    float:right;
+}
+
+.mlgo-title1 {
+    font-size: 10px;
+    color: #d1b883;
+    font-family: 'OpenSans';
+}
+
+.mlgo-title1:before {
+    content: '';
+    background: url("../images/macau_guide_icon/mobile_tag.png") no-repeat center;
+    background-size: 8px 9px;
+    width: 8px;
+    height: 9px;
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: middle;
+    margin-top: -3px;
+}
+
+.mlgo-title2 {
+    font-size: 14px;
+    color: #333333;
+    margin: 6px 0;
+    font-family: 'OpenSans';
+    line-height: 18px;
+}
+
+.mlgo-content {
+    font-size: 12px;
+    font-family: 'OpenSans';
+    color: #999999;
+}
+
+.three-line-container {
+    position: relative;
+    line-height: 15px;
+    height: 30px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.mlgo-content-no-after::after,
+.three-line-container-no-after::after {
+    content: '';
+    display: none;
+}
+
+.mlct-content {
+    font-size: 10px;
+    font-family: 'OpenSans';
+    line-height: 15px;
+    color: #333333;
+    opacity: 0.5;
+}
+
+.mlgo-content p {
+    margin: 0;
+}
+
+.mobile_latest_guide-item:last-child::after {
+    height: 0;
+}
+
+@media (max-width: 768px) {
+    .PC-DOM {
+        display: none;
+    }
+    .M-DOM {
+        display: block;
+    }
+    .latest_guide {
+        display: none;
+    }
+    .mobile_latest_guide {
+        display: block;
+    }
+}
+
+/*end*/
+
+/*premium_experience*/
+
+.premium_experience-all {
+    margin: 0 auto;
+    position: relative;
+    max-width: 1260px;
+}
+
+.premium_experience.swiper-container {
+    margin: -25px -25px 170px -25px;
+    padding: 10px;
+    position: static;
+    overflow: hidden;
+    list-style: none;
+    z-index: 1;
+}
+
+.premium_experience-all .peii-top {
+    padding-top: 68.4931506849315%;
+    position: relative;
+}
+
+.premium_experience-all .peii-top img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.premium_experience-all .peii-bottom {
+    padding: 11px 19px 4px 19px;
+}
+
+.premium_experience-all .peii-bottom-title1 {
+    font-size: 24px;
+    color: #555555;
+    line-height: 32px;
+    font-family:'OpenSans-Semibold' ;
+}
+
+.premium_experience-all .peii-bottom-title2 {
+    font-size: 20px;
+    line-height: 28px;
+    color: #555555;
+    font-family:'OpenSans-Light' ;
+}
+
+.premium_experience-all .swiper-button-prev {
+    background: url("../images/macau_guide_icon/left-arrow.svg") no-repeat center;
+    background-size: 4vw 4vw;
+    width: 4vw;
+    height: 4vw;
+    outline: none;
+    left: -7vw;
+}
+
+.premium_experience-all .swiper-button-next {
+    background: url("../images/macau_guide_icon/right-arrow.svg") no-repeat center;
+    background-size: 4vw 4vw;
+    width: 4vw;
+    height: 4vw;
+    outline: none;
+    right: -7vw;
+}
+
+.premium_experience-all .swiper-container-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    bottom: -60px;
+}
+
+.premium_experience-all .swiper-button-prev,
+.premium_experience-all .swiper-button-next {
+    margin-top: -2vw;
+}
+
+.premium_experience-all .swiper-pagination-bullet-active {
+    background-color: #b4975a !important;
+    opacity: 0.8 !important;
+}
+
+.premium_experience-all .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #b4975a;
+    opacity: 0.4;
+    margin:0 7px!important;
+}
+
+.peii:hover {
+    box-shadow: 0px 0px 15px 0px rgba(149, 149, 149, 0.3);
+}
+.peii:hover .macau_mask_layer{
+    display: block;
+}
+
+.peii:hover .peii-bottom-title1 {
+    color: #b4975a;
+}
+
+/*.premium_experience-all .swiper-slide.swiper-slide-active .peii-bottom-title1{
+  color: #b4975a;
+}
+.premium_experience-all  .swiper-slide.swiper-slide-active .peii{
+  box-shadow: 0px 0px 15px 0px
+  rgba(149, 149, 149, 0.3);
+}*/
+.premium_experience-all .swiper-slide{
+    height:auto;
+}
+.premium_experience-all .peii-link {
+    text-decoration: none;
+    display: block;
+    height:100%;
+    width:100%;
+}
+
+.peii {
+    margin: 0 auto;
+    padding: 15px;
+    height:100%;
+}
+
+@media (max-width: 1560px) {
+    .premium_experience-all .swiper-button-next {
+        right: -100px;
+    }
+    .premium_experience-all .swiper-button-prev {
+        left: -100px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .premium_experience-all .swiper-button-next {
+        right: -80px;
+    }
+    .premium_experience-all .swiper-button-prev {
+        left: -80px;
+    }
+}
+
+@media (max-width: 1366px) {
+    .premium_experience-all .swiper-button-next {
+        right: -60px;
+    }
+    .premium_experience-all .swiper-button-prev {
+        left: -60px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .premium_experience-all .peii-bottom-title2 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile_sands_shopes {
+        display: block;
+    }
+    .premium_experience-all {
+        display: none;
+    }
+}
+/*end*/
+
+/*end*/
+
+@media (max-width: 768px) {
+    .local_restaurant {
+        display: none;
+    }
+    .mobile_top_sights-all {
+        display: block;
+    }
+}
+
+/*local_flavor*/
+
+.local_flavor-all {
+    margin: 0 auto;
+    position: relative;
+}
+.local_flavor-all .swiper-slide{
+    height:auto;
+}
+.local_flavor {
+    margin: -25px -25px 170px -25px;
+    padding: 10px;
+    position: static;
+    overflow: hidden;
+    list-style: none;
+    z-index: 1;
+}
+
+.local_flavor-all .lfai-top {
+    padding-top: 68.4210526315789%;
+    position: relative;
+}
+
+.local_flavor-all .lfai-top img {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.local_flavor-all .lfai-bottom {
+    padding: 11px 0 4px 11px;
+}
+
+.local_flavor-all .lfai-link {
+    text-decoration: none;
+    display: block;
+    height:100%;
+    width:100%;
+}
+
+.lfai {
+    margin: 0 auto;
+    padding: 15px;
+    height:100%;
+}
+
+.local_flavor-all .lfai-bottom-title1 {
+    font-size: 24px;
+    color: #555555;
+    line-height: 32px;
+    font-family: 'OpenSans-Semibold';
+}
+
+.local_flavor-all .lfai-bottom-title2 {
+    font-size: 20px;
+    line-height: 28px;
+    color: #555555;
+    font-family: 'OpenSans-Light';
+    display: none;
+}
+
+.local_flavor-all .swiper-button-prev {
+    background: url("../images/macau_guide_icon/left-arrow.svg") no-repeat center;
+    background-size: 4vw 4vw;
+    width: 4vw;
+    height: 4vw;
+    outline: none;
+    left: -7vw;
+}
+
+.local_flavor-all .swiper-button-next {
+    background: url("../images/macau_guide_icon/right-arrow.svg") no-repeat center;
+    background-size: 4vw 4vw;
+    width: 4vw;
+    height: 4vw;
+    outline: none;
+    right: -7vw;
+}
+
+.local_flavor-all .swiper-button-prev,
+.local_flavor-all .swiper-button-next {
+    margin-top: -2vw;
+}
+
+.local_flavor-all .swiper-container-horizontal>.swiper-pagination-bullets,
+.swiper-pagination-custom,
+.swiper-pagination-fraction {
+    bottom: -60px;
+}
+
+.local_flavor-all .swiper-pagination-bullet-active {
+    background-color: #b4975a !important;
+    opacity: 0.8 !important;
+}
+
+.local_flavor-all .swiper-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #b4975a;
+    opacity: 0.4;
+    margin:0 7px!important;
+}
+
+.lfai:hover {
+    box-shadow: 0px 0px 15px 0px rgba(149, 149, 149, 0.3);
+}
+.lfai:hover .macau_mask_layer{
+    display: block;
+}
+.lfai:hover .lfai-bottom-title1 {
+    color: #b4975a;
+}
+
+@media (max-width: 1560px) {
+    .local_flavor-all .swiper-button-next {
+        right: -100px;
+    }
+    .local_flavor-all .swiper-button-prev {
+        left: -100px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .local_flavor-all .swiper-button-next {
+        right: -80px;
+    }
+    .local_flavor-all .swiper-button-prev {
+        left: -80px;
+    }
+}
+
+@media (max-width: 1366px) {
+    .local_flavor-all .swiper-button-next {
+        right: -60px;
+    }
+    .local_flavor-all .swiper-button-prev {
+        left: -60px;
+    }
+}
+
+@media (max-width: 1280px) {
+    .local_flavor-all .lfai-bottom-title2 {
+        font-size: 18px;
+        line-height: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .local_flavor-all {
+        margin: 0 auto !important;
+    }
+    .local_flavor {
+        padding: 0;
+        margin: 0;
+    }
+    .local_flavor-all .lfai-bottom {
+        padding: 12px 15px;
+    }
+    .lfai-bottom-title2 {
+        display: none;
+    }
+    .local_flavor-all .lfai-bottom-title1{
+        font-family: 'OpenSans';
+        font-size: 14px;
+        line-height: 18px;
+        color: #555555;
+    }
+    .local_flavor-all .lfai-bottom {
+        padding: 7px;
+    }
+    .lfai {
+        margin: 0 auto;
+        padding: 0;
+    }
+    .lfai:hover {
+        box-shadow: none;
+    }
+    .lfai:hover .lfai-bottom-title1 {
+        color: #555555;
+    }
+    .local_flavor-all .swiper-button-next,
+    .local_flavor-all .swiper-button-prev {
+        display: none;
+    }
+    .swiper-pagination {
+        display: none;
+    }
+    .lfai:hover .macau_mask_layer{
+        display: none;
+    }
+}
+
+/*end*/
+
+/*弹窗*/
+
+.mcgd-pop-mask {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1500;
+    background: hsla(0, 0%, 0%, .15);
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.mcgd-pop {
+    box-shadow: 0px 4px 8px 2px rgba(0, 0, 0, 0.15);
+    width: 1102px;
+    position: relative;
+    margin: 0 auto;
+    z-index: 1600;
+    top: 40%;
+    transform: translateY(-40%);
+    background: #ffffff;
+}
+
+.mcgd-pop-item {
+    padding: 21px 36px 32px;
+}
+
+.mcgd-pop-close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    font-family: "OpenSans-Light";
+    font-size: 32px;
+    line-height: 20px;
+    color: #555555;
+}
+
+.mpib-inner::after {
+    display: block;
+    clear: both;
+    content: "";
+    visibility: hidden;
+    height: 0;
+    zoom: 1;
+}
+.mpib-inner-left {
+    float: left;
+    width: calc((100% - 32px) * 0.501002004);
+    margin-right: 32px;
+}
+
+.mili-container {
+    height: 0;
+    padding-top: 68%;
+    position: relative;
+}
+
+.mili-container-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.mili-container-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+.mpib-inner-right {
+    float: left;
+    width: calc((100% - 32px) * 0.498997996);
+    min-height: 340px;
+    padding-top: 6px;
+    padding-bottom: 80px;
+}
+
+.mcgd-pop-arrow {
+    position: absolute;
+    right: 36px;
+    bottom: 29px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    z-index: 1700;
+    width: calc((100% - 104px) * 0.498997996);
+    font-family: "OpenSans";
+    font-size: 14px;
+    line-height: 26px;
+    color: #d1b883;
+}
+
+.mcgd-pop-arrow>span {
+    display: inline !important;
+}
+
+.mcgd-pop-arrow span {
+    vertical-align: 10px;
+}
+
+.mcgd-pop-arrow-next {
+    position: absolute;
+    right: 0;
+}
+
+.mcgd-pop-arrow-next svg {
+    transform: scale(-1, 1);
+}
+
+.mcgd-pop-arrow svg {
+    fill: #d1b883;
+}
+
+.mcgd-pop-arrow-prev:hover svg,
+.mcgd-pop-arrow-next:hover svg {
+    fill: #b4975a;
+}
+
+.mcgd-pop-arrow-prev:hover,
+.mcgd-pop-arrow-next:hover {
+    color: #b4975a;
+    cursor: pointer;
+}
+
+.mcgd-pop-item-title {
+    font-family: "OpenSans-Semibold";
+    font-size: 24px;
+    line-height: 32px;
+    color: #555555;
+}
+
+.miri-content {
+    font-family: "OpenSans-Light";
+    font-size: 20px;
+    line-height: 28px;
+    color: #555555;
+}
+
+.mcgd-pop-item-body {
+    margin-top: 27px;
+}
+
+@media (max-width: 1182px) {
+    .mcgd-pop {
+        width: calc(100% - 80px);
+    }
+}
+
+@media (max-width: 1000px) {
+    .mcgd-pop-arrow {
+        width: calc(100% - 72px);
+    }
+}
+
+@media (max-width: 767px) {
+    .mcgd-pop {
+        width: calc(100% - 15px);
+    }
+    .mcgd-pop-item {
+        padding: 16px 19px 0;
+    }
+    .mpib-inner-left,
+    .mpib-inner-right {
+        width: 100%;
+    }
+    .mcgd-pop-arrow {
+        position: relative;
+        width: calc(100% - 20px);
+        font-size: 10px;
+        line-height: 32px;
+        right: 0;
+        bottom: 0;
+        margin: 0 auto;
+        padding-top: 4px;
+        padding-bottom: 2px;
+    }
+    .mcgd-pop-arrow::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        -webkit-transform-origin: center top;
+        transform-origin: center top;
+        background: #eeeeee;
+    }
+    .mcgd-pop-arrow::after {
+        display: block;
+        clear: both;
+        content: "";
+        visibility: hidden;
+        height: 0;
+        zoom: 1;
+    }
+    [data-dpr="1"] .mcgd-pop-arrow::before {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+    }
+    [data-dpr="2"] .mcgd-pop-arrow::before {
+        -webkit-transform: scaleY(0.5);
+        transform: scaleY(0.5);
+    }
+    [data-dpr="3"] .mcgd-pop-arrow::before {
+        -webkit-transform: scaleY(0.33333);
+        transform: scaleY(0.33333);
+    }
+    .mcgd-pop-item-title {
+        font-family: "OpenSans-Semibold";
+        font-size: 16px;
+        line-height: 10px;
+        color: #555555;
+        text-align: center;
+    }
+    .miri-content {
+        font-family: "OpenSans";
+        font-size: 12px;
+        line-height: 18px;
+        color: #555555;
+    }
+    .mpib-inner-right {
+        min-height: 158px;
+        padding-top: 18px;
+        padding-bottom: 18px;
+    }
+    .mcgd-pop-arrow>span {
+        width: 50%;
+        position: relative;
+        float: left;
+        height: 34px;
+    }
+    .mcgd-pop-arrow svg {
+        width: 32px;
+        height: 19px;
+        position: absolute;
+        top: 7px;
+    }
+    .mcgd-pop-arrow>span span {
+        vertical-align: 6px;
+        display: inline-block;
+        max-width: calc(100% - 32px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .mcgd-pop-arrow-prev {
+        padding-left: 15px;
+    }
+    .mcgd-pop-arrow-next {
+        text-align: right;
+        padding-right: 15px;
+    }
+    .mcgd-pop-arrow-prev::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 1px;
+        -webkit-transform-origin: right center;
+        transform-origin: right center;
+        background: #eeeeee;
+    }
+    [data-dpr="1"] .mcgd-pop-arrow-prev::after {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1);
+    }
+    [data-dpr="2"] .mcgd-pop-arrow-prev::after {
+        -webkit-transform: scaleX(0.5);
+        transform: scaleX(0.5);
+    }
+    [data-dpr="3"] .mcgd-pop-arrow-prev::after {
+        -webkit-transform: scaleX(0.33333);
+        transform: scaleX(0.33333);
+    }
+    .mcgd-pop-close {
+        width: 12px;
+        height: 11px;
+        font-size: 24px;
+        line-height: 10px;
+        top: 13px;
+        right: 15px;
+    }
+    .mcgd-pop-item-body {
+        margin-top: 23px;
+    }
+    .mcgd-pop-arrow-prev:hover,
+    .mcgd-pop-arrow-next:hover {
+        color: #d1b883;
+    }
+    .mcgd-pop-arrow-prev:active,
+    .mcgd-pop-arrow-next:active {
+        color: #b4975a;
+    }
+    .mcgd-pop-arrow-prev:hover svg,
+    .mcgd-pop-arrow-next:hover svg {
+        fill: #d1b883;
+    }
+    .mcgd-pop-arrow-prev:active svg,
+    .mcgd-pop-arrow-next:active svg {
+        fill: #b4975a;
+    }
+    .mcgd-pop-arrow-prev>span {
+        margin-left: 30px;
+    }
+    .mcgd-pop-arrow-next>span {
+        margin-right: 30px;
+    }
+    .mcgd-pop-arrow-next>svg {
+        right: 15px;
+    }
+}
+
+.mcgd-item-img-wrapper img {
+    max-width: 100%;
+}
+
+/*end*/
+
+.mlgo-fork-title1{
+    font-size: 10px;
+    color: #d1b883;
+    font-family: 'OpenSans';
+    line-height: 15px;
+}
+
+.mlgo-fork-title1:before {
+    content: '';
+    background: url("../images/macau_guide_icon/bufft.png") no-repeat center;
+    background-size: 7px 8px;
+    width: 7px;
+    height: 8px;
+    display: inline-block;
+    margin-right: 5px;
+    vertical-align: middle;
+    margin-top: -3px;
+}
+
+.mobile_latest_guide-item {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.mlgo-buffets-content{
+    font-family: 'OpenSans';
+    font-size: 12px;
+    line-height: 15px;
+    color: #999999;
+}
+
+.mlgo-local {
+    font-size: 10px;
+    font-family: 'OpenSans';
+    line-height: 15px;
+    color: #555555;
+    opacity: .5;
+    margin-top: 3px;
+}
+
+.mlgo-local:before {
+    content: '';
+    background: url("../images/macau_guide_icon/local.png") no-repeat center;
+    background-size: 6px 8px;
+    width: 6px;
+    height: 8px;
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+    margin-top: -3px;
+}
+
+.mlgo-buffet-title2{
+    font-family: 'OpenSans';
+    font-size: 14px;
+    line-height: 18px;
+    color: #555555;
+    margin: 5px 0;
+}
+
+.mmtsi-bottom-local {
+    font-size: 12px;
+    font-family: 'OpenSans';
+    line-height: 15px;
+    color: #555555;
+    opacity: .8;
+}
+
+.mmtsi-bottom-local:before {
+    content: '';
+    background: url("../images/macau_guide_icon/local.png") no-repeat center;
+    background-size: 6px 8px;
+    width: 6px;
+    height: 8px;
+    display: inline-block;
+    margin-right: 6px;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+.tab-title {
+    display: inline-block;
+    width: auto;
+}
+
+.header-operation {
+    float: right;
+}
+
+.edit-toolbar-container {
+    font-size: 20px;
+}
+
+.display-inline-block {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.pagination-container {
+    margin: 56px 0;
+    text-align: right;
+}
+
+.pagination-container li {
+    display: inline-block;
+    list-style: none;
+    margin: 0 3px;
+    vertical-align: top;
+}
+
+.pagination-container .first,
+.pagination-container .last {
+    display: none;
+}
+
+.pagination-container li.disabled,
+.pagination-container li.disabled a,
+.pagination-container li.disabled a:hover {
+    color: #aaa;
+    cursor: not-allowed;
+}
+
+.pagination-container li.page {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    color: #666;
+    font-size: 24px;
+    font-family: OpenSans-Semibold;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+    background: #efefef;
+}
+
+.pagination-container li.page a,
+.pagination-container li.page a:hover {
+    color: #bcbcbc;
+}
+
+.pagination-container li.page.active {
+    color: #fff;
+    background-color: #b4975a;
+}
+
+.pagination-container li.page.active>a,
+.pagination-container li.page.active>a:hover {
+    color: #fff;
+}
+
+.sub_title-more {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 20px;
+    color: #b4975a;
+    font-family: 'OpenSans-Light';
+}
+
+.sub_title-more::after {
+    display: inline-block;
+    content: '';
+    width: 20px;
+    background-image: url(../images/macau_guide_icon/right.png);
+    height: 20px;
+    background-size: 20px 20px;
+    vertical-align: middle;
+    margin-top: -2px;
+    margin-left: 6px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.inline-block {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.display-none {
+    display: none;
+}
+
+.pagination-container li.prev {
+    width: 40px;
+    height: 40px;
+    margin-right: 24px;
+    background-image: url("../images/macau_guide_icon/left-arrow-circle.png");
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    background-position: 4px;
+    cursor: pointer;
+}
+
+.pagination-container li.next {
+    width: 40px;
+    height: 40px;
+    margin-left: 24px;
+    background-image: url(../images/macau_guide_icon/right-arrow-circle.png);
+    background-size: 32px 32px;
+    background-repeat: no-repeat;
+    background-position: 4px;
+    cursor: pointer;
+}
+
+.only-mobile {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .sub_title-inner {
+        width: 100%;
+        text-align: left;
+        margin: 15px 0 17px 0;
+    }
+    .sub_title {
+        font-size: 16px;
+        color: #555555;
+        line-height: 18px;
+    }
+    .sub_title-summaries {
+        display: none;
+    }
+
+    .sub_title-more{
+        font-family: 'OpenSans';
+        font-size: 14px;
+        line-height: 18px;
+        color: #b4975a;
+    }
+    .sub_title-more::after {
+        display: inline-block;
+        content: '';
+        width: 11px;
+        background-image: url("../images/macau_guide_icon/right.png");
+        height: 11px;
+        background-size: 11px 11px;
+        vertical-align: middle;
+        margin-top: -2px;
+        margin-left: 6px;
+    }
+    .hide-on-mobile {
+        display: none;
+    }
+    .only-mobile {
+        display: block;
+    }
+    .local_restaurant-content {
+        position: relative;
+        width: 100%;
+    }
+}
+.macau_top_sights-all-special{
+    margin: -10px -10px -25px -10px;
+}
+.premium_experience-all-special{
+    margin:-25px!important;
+}
+.local_flavor-all-special{
+    margin: -10px -10px -25px -10px;
+}
+@media (max-width: 768px) {
+    .local_flavor-all-special{
+        margin: 0;
+    }
+}
+.mili-container-inner{
+    display: block;
+    width:100%;
+    height:100%;
+}
+.sub_title-more:hover{
+    color: #b4975a;
+}
